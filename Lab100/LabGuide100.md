@@ -236,6 +236,8 @@ Login to your Oracle Cloud tenancy and in the top left hamburger menu you will f
 
 ![](/./images/22.png "")
 
+If you want to make a compartment, please refer to this [link](https://oracle-base.com/articles/vm/oracle-cloud-infrastructure-oci-create-a-compartment) to see how to make a compartment. 
+
 Select the option “Create Virtual Cloud Network.”
 
 ![](/./images/23.png "")
