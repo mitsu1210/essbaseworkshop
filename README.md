@@ -16,9 +16,9 @@ Attached below is a sample architecture of the final solution:
 * Provision custom compute with OSCommerce Image
 * Provision underlying infrastructure such as networking, security lists etc
 * Make application Highly Available with Traffic Steering Policies and Active Failover
-* Provision OAC, OIC, and ADW Instances
-* Pull data from MySQL database into ADW
-* Perform Analytics with OAC
+* Provision Oracle Analytics Cloud instace, Oracle Integration Cloud instance, and Autonomous Data Warehouse Instance
+* Pull data from MySQL database into Oracle Autonomous Data Warehouse
+* Perform Analytics with Oracle Analytics Cloud 
 
 ### Required Artifacts
 * The following lab requires an Oracle Public Cloud account that will either be supplied by your instructor, or can be obtained through the following steps.
