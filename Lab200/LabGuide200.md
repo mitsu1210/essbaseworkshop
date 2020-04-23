@@ -139,13 +139,13 @@ Now run the following command to replicate the database
 
 ``` mysqldump --host=1.2.3.4 --user=MYDBUSER -pMYDBPASSWORD --add-drop-table --no-create-db --skip-lock-tables MYDBNAME | mysql --user=MYDBUSER -pMYDBPASSWORD MYDBNAME```
 
-Check if the database tables are replicated properly by using the following:
-
-![](./images/5b.png "")
-
 In my case, the command looked like this:
 
 ```mysqldump --host=150.136.116.169 -P 3306 --user=root -poscommerce --add-drop-table --no-create-db --skip-lock-tables oscommerce | mysql --user=root -poscommerce oscommerce```
+
+Check if the database tables are replicated properly by using the following:
+
+![](./images/5b.png "")
 
 Note this particular mysqldump command does not create a dump file, but rather migrates all tables of the specified database from source to the target thereby keeping the source and target database consistent. 
 
