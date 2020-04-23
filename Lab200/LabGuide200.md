@@ -129,7 +129,9 @@ On mysql terminal, run the following commands:
 
 **Note: ip_address is the ip address of the secondary server**
 
-Now, go to the secondary server and run the following command:
+Now, go to the secondary server:
+
+Delete the oscommerce database and create an empty oscommerce database as follows: 
 
 ``` mysqldump --host=1.2.3.4 --user=MYDBUSER -pMYDBPASSWORD --add-drop-table --no-create-db --skip-lock-tables MYDBNAME | mysql --user=MYDBUSER -pMYDBPASSWORD MYDBNAME```
 
@@ -137,7 +139,7 @@ In my case, the command looked like this:
 
 ```mysqldump --host=150.136.116.169 -P 3306 --user=root -poscommerce --add-drop-table --no-create-db --skip-lock-tables oscommerce | mysql --user=root -poscommerce oscommerce```
 
-Be sure to replace the values above with your actual primary server ip address and user/passwords. 
+Note this particular mysqldump command does not create a dump file, but rather migrates all tables of the specified database from source to the target thereby keeping the source and target database consistent. 
 
 For production environments, you can run it as a cronjob. Run ‘crontab -e’, then add your mysqldump command:
 
