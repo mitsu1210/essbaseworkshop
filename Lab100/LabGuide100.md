@@ -45,7 +45,7 @@ If you you would like to increase the desktop view of the VirtualBox, click on t
 
 ![](./images/5.png "")
 
-![](/./images/6.png "")
+![](./images/6.png "")
 
 ### Step 2: Install and Setup LAMP (Linux, Apache, MySQL, PHP) & SSH
 **Verify Internet Connection**
@@ -88,7 +88,7 @@ Run this command within the terminal on the VirtualBox environment:
 sudo apt-get install apache2
 ```
 If you direct your browser to localhost you will see the Apache2 placeholder page.
-![](/./images/7.png "")
+![](./images/7.png "")
 
 **Install PHP5**
 
@@ -151,7 +151,7 @@ Check your iptables is updated with SSH access rules & save the updated rules:
 sudo iptables -L
 sudo invoke-rc.d iptables-persistent save
 ```
-![](/./images/8.png "")
+![](./images/8.png "")
 
 ### Step 3: OSCommerce Setup
 **Download OSCommerce**
@@ -179,13 +179,13 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 ![](/./images/9.png "")
 
 Start the new installation and log in to the MySQL database using the credentials created earlier. If values differ from those in the screenshot, please make sure you enter them appropriately.
-![](/./images/10.png "")
+![](./images/10.png "")
 
 Set where the www address and web server root directory should be saved
-![](/./images/11.png "")
+![](./images/11.png "")
 
 Finally, set the OSCommerce online store settings info. We recommend that you make a note of the administrator username and password for later reference.
-![](/./images/12.png "")
+![](./images/12.png "")
 
 After installation, remove the installation directory to protect your site and change the permissions on sensitive files:
 ```
