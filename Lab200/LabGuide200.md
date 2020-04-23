@@ -133,7 +133,15 @@ Now, go to the secondary server:
 
 Delete the oscommerce database and create an empty oscommerce database as follows: 
 
+![](./images/5a.png "")
+
+Now run the following command to replicate the database
+
 ``` mysqldump --host=1.2.3.4 --user=MYDBUSER -pMYDBPASSWORD --add-drop-table --no-create-db --skip-lock-tables MYDBNAME | mysql --user=MYDBUSER -pMYDBPASSWORD MYDBNAME```
+
+Check if the database tables are replicated properly by using the following:
+
+![](./images/5b.png "")
 
 In my case, the command looked like this:
 
