@@ -20,6 +20,7 @@ Estimated time to complete this lab is three hours.
 ### Additional Resources
 * To learn about provisioning Networks and Network Security check out this [link](https://docs.cloud.oracle.com/en-us/iaas/Content/Network/Concepts/overview.htm)
 * To learn about Object Storage in the cloud please see the following [link](https://docs.cloud.oracle.com/en-us/iaas/Content/Object/Concepts/objectstorageoverview.htm)
+* Oracle VirtualBox [link](https://www.oracle.com/virtualization/virtualbox/)
 
 ## Part 1. Capturing a Snapshot of Third Party OS Commerce Application
 
