@@ -54,7 +54,7 @@ Before installing any of the packages on the Ubuntu image on VirtualBox, make su
 
 **Install MySQL5**
 
-Run this terminal command to install MySQL:
+Run this terminal(ctrl+atl+T) command to install MySQL:
 ```
 sudo apt-get install mysql-server mysql-client
 ```
