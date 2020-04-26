@@ -52,10 +52,15 @@ On this page, name your connection. In this lab, we used “MySQL_osCommerce”.
 
 
 In the next page, you will be asked to provide information for Connection Properties, Security, and Agent Group. To edit these, click on their respective Configure button and enter the following information:
+
 Host: This will be the public IP to your compute instance
+
 Port: Use port 3306 since this is a MySQL database
+
 Database Name: oscommerce. This is the database name we used in Step 2
+
 Username & Password: Use the credentials that you used in Step 2
+
 Agent Group: In the Oracle Integration Cloud instance, there will be an Agent Group preconfigured for you. Select that one. If there is no agent, follow the steps from this [link](https://docs.oracle.com/en/cloud/paas/integration-cloud/integrations-user/agent-download-and-installation.html#GUID-72491B67-7445-4B52-94FA-CEC8488E0F4A) to install a new agent. 
 
 ![](./images/5.png "")
