@@ -46,7 +46,7 @@ A new window will load. On the top right, search for “MySQL” and you will be
 
 ![](./images/3.png "")
 
-On this page, name your connection. In this lab, we used “MySQL_osCommerce”. Feel free to add a Description to this connection if you’d like. For the role, make sure that “Trigger and Invoke” is enabled.
+On this page, name your connection. In this lab, we used “MySQL_osCommerce”. You can optionally add a description to this connection. For the role, make sure that “Trigger and Invoke” is enabled.
 
 ![](./images/4.png "")
 
