@@ -67,10 +67,10 @@ Please note: In order for our OIC instance to communicate with MySQL database, m
 
 1. In your primary compute instance, go to MySQL console and execute following command:
 
+Here, ip address is the ip address of your agent
+
 ```
 CREATE USER 'root'@'ip_address' IDENTIFIED BY 'some_pass';
-
-Here, ip address is the ip address of your agent
 
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';
 
