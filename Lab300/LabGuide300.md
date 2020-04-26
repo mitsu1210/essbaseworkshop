@@ -33,7 +33,7 @@ Before moving forward, if you have been provided a wallet file, a username, and 
 
 If you have not been provided a username, password, and wallet file, please follow the lab guide (Part 1 and Part 2) here [link](https://github.com/oracle/learning-library/blob/master/workshops/erp-adw-oac/LabGuide100ProvisionAnADWDatabase.md). Once you complete making an ADW or ATP instance, please download the Wallet file from the console.
 
-Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you. Click [here](https://docs.oracle.com/en/cloud/paas/integration-cloud/integration-cloud-auton/create-oracle-integration-instance.html#GUID-F6F5341D-8E36-43A8-BCB4-3FF5E8BE8E5A) if you need to create one. 
+Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you. Follow instructions from [here](https://docs.cloud.oracle.com/en-us/iaas/integration/doc/creating-oracle-integration-instance.html) if you need to create one. 
 In the Oracle Integration Cloud home page, click on the Menu icon in the top left and click on Integration.
 
 ![](./images/1.png "")
