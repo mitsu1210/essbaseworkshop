@@ -98,11 +98,19 @@ Before making connection, we have to ensure the target database table exists in 
 
 1. On your ADW console home page, click service console
 
+![](./images/5a.png "")
+
 2. Click SQL Developer Web
+
+![](./images/5b.png "")
 
 3. In this screen, use your ADW credentials
 
+![](./images/5c.png "")
+
 4. Use the following code to generate the Products table
+
+![](./images/5d.png "")
 
 ```
 CREATE TABLE "ADMIN"."PRODUCTS" 
