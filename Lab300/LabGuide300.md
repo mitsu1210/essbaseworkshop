@@ -63,6 +63,19 @@ Username & Password: Use the credentials that you used in Step 2
 
 Agent Group: In the Oracle Integration Cloud instance, there will be an Agent Group preconfigured for you. Select that one. If there is no agent, follow the steps from this [link](https://docs.oracle.com/en/cloud/paas/integration-cloud/integrations-user/agent-download-and-installation.html#GUID-72491B67-7445-4B52-94FA-CEC8488E0F4A) to install a new agent. 
 
+Please note: In order for our OIC instance to communicate with MySQL database, make sure the agent has write permission to your MySQL database. Please perform the following steps in order for to do that:
+
+1. In your primary compute instance, go to MySQL console and execute following command:
+
+```
+CREATE USER 'root'@'ip_address' IDENTIFIED BY 'some_pass';
+
+Here, ip address is the ip address of your agent
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';
+
+```
+
 ![](./images/5.png "")
 
 ### Step 2: Establish connection from Oracle Autonomous Database and Oracle Integration Cloud
