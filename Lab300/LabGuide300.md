@@ -80,9 +80,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';
 
 ### Step 2: Establish connection from Oracle Autonomous Database and Oracle Integration Cloud
 
-Creating a connection between an Oracle Autonomous Database and Oracle Integration Cloud is a very similar process to creating a connection between our MySQL database and OIC. Within our ADW instance, we have already created some tables that will be used later in this lab.
+Creating a connection between an Oracle Autonomous Database and Oracle Integration Cloud is a very similar process to creating a connection between our MySQL database and OIC. 
 
-Click on the same create button under the Connections tab and search for your respective Oracle Autonomous Database, either Autonomous Transaction Processing or Autonomous Warehouse. In this lab, we chose an Oracle Autonomous Transaction Processing database.
+Click on the same create button under the Connections tab and search for your respective Oracle Autonomous Database, either Autonomous Transaction Processing or Autonomous Warehouse. 
 
 ![](./images/6.png "")
 
@@ -93,6 +93,37 @@ In the next window, you will need to provide your Oracle Database wallet file, a
 ### Step 3: Establish an integration between the ADW and MySQL connections
 
 Now that we have both connections made in Oracle Integration Cloud for our MySQL and Autonomous Database, we will need to establish an integration for both to communicate with each other.
+
+Before making connection, we have to ensure the target database table exists in ADW. For that follow the instructions here:
+
+1. On your ADW console home page, click service console
+
+2. Click SQL Developer Web
+
+3. In this screen, use your ADW credentials
+
+4. Use the following code to generate the Products table
+
+```
+CREATE TABLE "ADMIN"."PRODUCTS" 
+   (	"PRODUCTS_ID" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_QUANTITY" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_MODEL" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_IMAGE" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_PRICE" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_DATE_ADDED" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_LAST_MODIFIED" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_DATE_AVAILABLE" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_WEIGHT" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_STATUS" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_TAX_CLASS_ID" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"MANUFACTURERS_ID" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_ORDERED" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" ;
+
+
+```
+
 
 Back on the Designer Tab, click on “Integrations”. When you are in the Integrations tab, click
 on create
