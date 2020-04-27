@@ -12,16 +12,16 @@ Below, we have a demo of how you can setup disaster recovery for your app easily
 
 
 ### Required Artifacts
-* 2 OsCommerce compute servers with rsync installed
-* Make sure you have setup ssh access from local to both the servers and from server 1 to server 2 and vice-versa
-* DNS Zone master file (You will need a domain name)
+* 2 OsCommerce compute servers (You already have primary oscommerce compute instance. Spin up a secondary compute instance from your oscommerce custom image)
+* Make sure you have setup ssh access from local to both the servers and from primary server to secondary server and vice-versa (More information in the lab below)
+* 1 Domain name (To demonstrate failover)
 
 Estimated time to complete this lab is three hours.
 
 ### Additional Resources
 * To learn about provisioning Networks and Network Security check out this [link](https://docs.cloud.oracle.com/en-us/iaas/Content/Network/Concepts/overview.htm)
 
-* To learn about Oracle's DNS and Traffic Management check out this link (https://docs.cloud.oracle.com/en-us/iaas/Content/EdgeServices/overview.htm)
+* To learn about Oracle's DNS and Traffic Management check out this [link](https://docs.cloud.oracle.com/en-us/iaas/Content/EdgeServices/overview.htm)
 
 
 ## Part 1. Transfer and synchronize webserver files and database files between primary instance and secondary instance.
@@ -29,7 +29,9 @@ Estimated time to complete this lab is three hours.
 ### Step 1: Download and installing rsync
 Download rsync command on both the compute instances as follows:
 
-```sudo apt-get install rsync```
+``` 
+sudo apt-get install rsync
+```
 
 ### Step 2: Scp ssh key to primary compute OR Generate ssh key pair
 
