@@ -214,22 +214,29 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 
 Change from ```"DocumentRoot /var/www/html" ```to ```"DocumentRoot /var/www/html/catalog"```
 
-Add ```“DirectoryIndex index.php”```
+Add 
+
+```
+“DirectoryIndex index.php”
+```
 
 ![](./images/8.png "")
 
 Restart the server using the command
 
-```sudo service apache2 restart```
+```
+sudo service apache2 restart
+```
 
 ### If you already have your DNS Zone within Oracle Cloud Infrastructure, Skip step 2 and step 3
 
 ### Step 2: Export DNS zone file
+
 **Prequisite**
 
-* For this section of a lab, you will need domain name. There are many domain name registrars like GoDaddy, NameCheap or Google. we are using google as my domain name registrar for this lab
+* For this section of a lab, you will need domain name. There are many domain name registrars like GoDaddy, NameCheap or Google. we are using google as my domain name registrar for this lab. Any domain name should be fine. 
 
-* **Note: DNS will take 4-12 hours to propagate after you make changes**
+* Note: DNS will take 4-12 hours to propagate after you make changes**
 
 Export the resource record. This file would be exported as a .txt file. Store in a secure location, we would need the file later in the lab
 
@@ -352,7 +359,9 @@ Test the failover mechanism by stopping apache2 service on the mater node
 
 Login into the master node and stop apache service
 
-```sudo /etc/init.d/apache2 stop```
+```
+sudo /etc/init.d/apache2 stop
+```
 
 ![](./images/45.png "")
 
