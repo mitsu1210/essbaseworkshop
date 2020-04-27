@@ -182,7 +182,7 @@ Restart the server using the command
 
 ### If you already have your DNS Zone within Oracle Cloud Infrastructure, Skip step 2 and step 3
 
-### Step 2:Export DNS zone file
+### Step 2: Export DNS zone file
 **Prequisite**
 
 * For this section of a lab, you will need domain name. There are many domain name registrars like GoDaddy, NameCheap or Google. we are using google as my domain name registrar for this lab
