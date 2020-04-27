@@ -245,7 +245,7 @@ Select the option “Create Virtual Cloud Network.”
 
 Select the option “Create Virtual Cloud Network Plus Related Resources.” This will generate the required resources for a publicly accessible subnet including default route tables, internet gateways, and security lists. All pre-generated resources will be displayed, e.g. “Create Internet Gateway.” Be choosing the related resources option we minimize additional config.
 
-![](/./images/24.png "")
+![](./images/24.png "")
 
 **Security List Config**
 
@@ -256,31 +256,31 @@ It's vitally important that we lock down this application as malicious third par
 
 For production instances **never** open up all traffic via 0.0.0.0/0 on a given port. This will make your application extremely vulnerable to third party attackers. In this lab we will do this for the sake of easy configuration but it is highly recommended that after the lab you lock these ports down.
 
-![](/./images/25.png "")
-![](/./images/26.png "")
+![](./images/25.png "")
+![](./images/26.png "")
 
 ### Step 2: Create Object Storage Bucket
 From the top left hamburger menu, expand the list and find “Object Storage.” Select Object
 Storage from the secondary list and choose "create bucket." Enter a name for the bucket and click create Bucket with default settings for storage tier and encryption.
 
-![](/./images/27.png "")
-![](/./images/28.png "")
-![](/./images/29.png "")
+![](./images/27.png "")
+![](./images/28.png "")
+![](./images/29.png "")
 
 ### Step 3: Upload VMDK File to Bucket & Create PAR
 Select the bucket you created and then click the blue bottom within Objects named “Upload Objects.” Click “select files” and then locate the .vmdk file created previously from the unzipped .ova
 
-![](/./images/30.png "")
-![](/./images/31.png "")
+![](./images/30.png "")
+![](./images/31.png "")
 
 Click the three dots next to the .vmdk file and select Create Pre-Authenticated Request. Leave the default selections and click Create Pre-Authenticated Request. If you would like this PAR to exist for an extended period of time, adjust expiration date accordingly.
 
-![](/./images/32.png "")
-![](/./images/33.png "")
+![](./images/32.png "")
+![](./images/33.png "")
 
 Copy the pre-authenticated request URL. This will be used later when creating the custom image.
 
-![](/./images/34.png "")
+![](./images/34.png "")
 
 ## Part 3: Create Custom Image and Instance
 
@@ -288,26 +288,26 @@ Copy the pre-authenticated request URL. This will be used later when creating th
 From the top left hamburger menu, locate “Compute” and select “Custom Images” from the
 drop down.Click the blue button and select "Import Image"
 
-![](/./images/35.png "")
-![](/./images/36.png "")
+![](./images/35.png "")
+![](./images/36.png "")
 
 Select which compartment the image will be created in (if dedicated compartment was created, choose this one). Name the image & Select Linux for the operating system. Paste the Pre-Authenticated Request URL that was copied in the last step into the Object Storage URL field. Leave the default image type (VMDK) and Launch Mode (Paravirtualized). Process will take about 30 minutes to complete.
 
-![](/./images/37.png "")
+![](./images/37.png "")
 
 ### Step 2: Create Instance with Custom Image
 
 Click "Compute" -> "Instances." Click “Create Instance”, then “Change Image Source”, then “Custom Images”, and select the osCommerce custom image.
 
-![](/./images/38.png "")
+![](./images/38.png "")
 
 In “Configuring Network,” select the VCN created earlier and subnet. Make sure you click on the button for “Assign a public IP address”. Click the “Create” blue button at bottom of screen to create the instance.
 
-![](/./images/39.png "")
+![](./images/39.png "")
 
 Next, browse for your public SSH key on your computer. Drag and drop that public SSH key file. Locate this file to drop the public key, ‘.pub’ or paste the contents of the key.
 
-![](/./images/40.png "")
+![](./images/40.png "")
 
 If you need to generate an SSH key pair, use the command below and follow on screen instructions for:
 ```
@@ -332,10 +332,10 @@ From the connected instance open the sshd_config file (see command). Enter your 
 sudo nano /etc/ssh/sshd_config
 ```
 Remove the "#" sign at the start of the PasswordAuthentication label and replace "Yes" with "No." The line should read PasswordAuthentication no.
-![](/./images/41.png "")
+![](./images/41.png "")
 
 Find the “UsePAM” label, and then replace "Yes" with "No" so that the line reads: UsePAM no
-![](/./images/42.png "")
+![](./images/42.png "")
 
 Run the following commands to save the file, restart the server and create the appropriate directories:
 ```
@@ -361,7 +361,7 @@ vncserver
 ```
 
 When prompted with “You will require a password to access your desktops”, put in a new password. We will use this new password when connecting to our instance via VNC Viewer. Select “n” when prompted “Would you like to enter a view-only password.”
-![](/./images/43.png "")
+![](./images/43.png "")
 
 Vncserver completes the installation of VNC by creating default configuration files and connection information for our server to use. With these packages installed, you are ready to configure your VNC server and graphical desktop.
 
@@ -398,7 +398,7 @@ nautilus &
 ```
 
 Save the file once the commands are properly pasted in. Press Control+X to save. When prompted to “Save modified buffer?”, Press Y. Do not change the name of the file. Press Enter to continue. Your file should look identical to the terminal command below. **NOTE: Please confirm that the copy & past reflects the below screenshot**
-![](/./images/44.png "")
+![](./images/44.png "")
 
 **Create a VNC Service File**
 
@@ -430,7 +430,7 @@ esac
 exit 0
 ```
 
-![](/./images/45.png "")
+![](./images/45.png "")
 
 
 
@@ -463,12 +463,12 @@ oscommerce-VirtualBox:1) In this case it will be port 1 = 5901. If it was :2 the
 vncserver -kill :1
 ```
 
-![](/./images/46.png "")
+![](./images/46.png "")
 
-![](/./images/47.png "")
+![](./images/47.png "")
 
 **Confirm Customized OsCommerce App is Running**
 
 Open Firefox and enter in “localhost/catalog/index.php”. If you see a similar window as shown in the photo below, you have successfully completed this lab!
 
-![](/./images/48.png "")
+![](./images/48.png "")
