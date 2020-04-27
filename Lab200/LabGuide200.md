@@ -7,6 +7,8 @@ Below, we have a demo of how you can setup disaster recovery for your app easily
 ![](./images/1.png "")
 
 ### Objectives
+
+* Learn how to leverage Oracle Cloud infrastructure to create a high available and disaster recovery solution for your applications.
 * Learn how to replicate data across multiple compute instances using Rsync, mysqldump utility.
 * Learn how to provision and configure DNS Failover with Traffic Management Steering policy
 
