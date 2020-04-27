@@ -43,7 +43,9 @@ Alternatively, we can use: Method 2 - Create new keys
 
 On each server run:
 
-```ssh-keygen```
+```
+ssh-keygen
+```
 
 Hit enter. You'll have two files:
 
@@ -51,13 +53,17 @@ Hit enter. You'll have two files:
 
 On Server A, cat and copy to clipboard the public key:
 
-```cat ~/.ssh/id_rsa.pub```
+```
+cat ~/.ssh/id_rsa.pub
+```
 
 select and copy to your clipboard
 
 ssh into Server B, and append the contents of that to the it's authorized_keys file:
 
-```cat >> ~/.ssh/authorized_keys```
+```
+cat >> ~/.ssh/authorized_keys
+```
 
 Paste your clipboard contents. Rsync is configured to use ssh by default**
 
@@ -67,15 +73,21 @@ Our web server files are located at /var/www/html. In order to demonstrate repli
 
 On secondary server, run the following command.
 
-```sudo rm -rf /var/www/html```
+```
+sudo rm -rf /var/www/html
+```
 
 This will delete all the web server files from secondary server. Now, go to /var/www folder and create an empty folder:
 
-```sudo mkdir html```
+```
+sudo mkdir html
+```
 
 Now give the following permissions to the folder:
 
-```sudo chmod 777 /var/www/html/```
+```
+sudo chmod 777 /var/www/html/
+```
 
 Please note: For the purpose of this lab, we are using chmod 777, however setting up 777 permissions is not recommended for production environments. Here, we are using it to quickly demonstrate replication and failover.
 
@@ -84,7 +96,9 @@ Please note: For the purpose of this lab, we are using chmod 777, however settin
 
 Now, we will perform the rsync command from primary server to secondary server to replicate the files. Run the following command on server 1 (primary). The ip address below is for the secondary server.
 
-```rsync -r /var/www/html/ oscommerce@129.146.108.71:/var/www/html/```
+```
+rsync -r /var/www/html/ oscommerce@129.146.108.71:/var/www/html/
+```
 
 If you go to secondary server, you can see the following files in the /var/www/html directory
 
@@ -100,34 +114,48 @@ We have successfully replicated the web server files. Similaryly, we can replica
 
 Run the following command on primary and backup server:
 
-```sudo nano /etc/my.cnf```
+```
+sudo nano /etc/my.cnf
+```
 
 
 If the above command does not work, try the following command.
 
-```sudo nano /etc/mysql/my.cnf```
+```
+sudo nano /etc/mysql/my.cnf
+```
 
 
 Comment out the line which says
 
-```bind-address = 127.0.0.1```
+```
+bind-address = 127.0.0.1
+```
 
 ![](./images/5.png "")
 
 
 Restart mysql
 
-```sudo service mysql restart```
+```
+sudo service mysql restart
+```
 
 In order for our database in our secondary server to communicate to the database in the primary server, do the following in the primary server- Go to mysql terminal by typing:
 
-```mysql -u root -p```
+```
+mysql -u root -p
+```
 
 On mysql terminal, run the following commands:
 
-```CREATE USER 'root'@'ip_address' IDENTIFIED BY 'some_pass';```
+```
+CREATE USER 'root'@'ip_address' IDENTIFIED BY 'some_pass';
+```
 
-```GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';```
+```
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';
+```
 
 **Note: ip_address is the ip address of the secondary server**
 
@@ -139,11 +167,15 @@ Delete the oscommerce database and create an empty oscommerce database as follow
 
 Now run the following command to replicate the database
 
-``` mysqldump --host=1.2.3.4 --user=MYDBUSER -pMYDBPASSWORD --add-drop-table --no-create-db --skip-lock-tables MYDBNAME | mysql --user=MYDBUSER -pMYDBPASSWORD MYDBNAME```
+```
+ mysqldump --host=1.2.3.4 --user=MYDBUSER -pMYDBPASSWORD --add-drop-table --no-create-db --skip-lock-tables MYDBNAME | mysql --user=MYDBUSER -pMYDBPASSWORD MYDBNAME
+ ```
 
 In my case, the command looked like this:
 
-```mysqldump --host=150.136.116.169 -P 3306 --user=root -poscommerce --add-drop-table --no-create-db --skip-lock-tables oscommerce | mysql --user=root -poscommerce oscommerce```
+```
+mysqldump --host=150.136.116.169 -P 3306 --user=root -poscommerce --add-drop-table --no-create-db --skip-lock-tables oscommerce | mysql --user=root -poscommerce oscommerce
+```
 
 Check if the database tables are replicated properly by using the following:
 
@@ -153,7 +185,9 @@ Note this particular mysqldump command does not create a dump file, but rather m
 
 For production environments, you can run it as a cronjob. Run ‘crontab -e’, then add your mysqldump command:
 
-```0 0 * * * mysqldump...```
+```
+0 0 * * * mysqldump...
+```
 
 ![](./images/6.png "")
 
@@ -166,11 +200,15 @@ At this point of time, our primary server and secondary server are in sync. Lets
 
 ssh into both compute instances
 
-```ssh oscommerce@<public ip-add>```
+```
+ssh oscommerce@<public ip-add>
+```
 
 Edit Apache config file. This step would make the oscommerce application accessible directly on the public ip address.
 
-```sudo nano /etc/apache2/sites-available/000-default.conf```
+```
+sudo nano /etc/apache2/sites-available/000-default.conf
+```
 
 Change from ```"DocumentRoot /var/www/html" ```to ```"DocumentRoot /var/www/html/catalog"```
 
