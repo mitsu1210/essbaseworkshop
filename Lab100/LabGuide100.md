@@ -196,36 +196,36 @@ sudo chmod 644 /var/www/html/catalog/admin/includes/configure.php
 
 ### Step 4: Configure osCommerce for End User Use
 Type localhost/catalog/admin in the address bar of the firefox browser you had open earlier. You'll need to log in with the admin username and password that you entered when setting up your osCommerce Online Store Settings. After logging in you'll be redirected to a page that looks similar to the second photo below.
-![](/./images/13.png "")
-![](/./images/14.png "")
+![](./images/13.png "")
+![](./images/14.png "")
 
 **Create a New Manufacturer, Category & Product**
 
 When logged in, click on “Catalog” on the right-hand menu and click on “Manufacturers”. On the next page, click on “Insert” and proceed to enter “Oracle” as the Manufacturer Name and upload an image of the Oracle logo (you can download one by using the firefox browser and saving it locally).  Click save when complete. You will then see Oracle as a listed Manufacturer with the image you uploaded.
-![](/./images/15.png "")
+![](./images/15.png "")
 
 Go to “Categories/Products” then “Hardware”, click “New Category”, and name it ‘Oracle Hardware’. Upload an image of the Oracle logo and click save when complete.
-![](/./images/16.png "")
+![](./images/16.png "")
 
 Go to “Categories/Products” then “Hardware”, click ‘Oracle Hardware’, then click ‘New Product’, and fill out the fields. Download an image, from the browser, of the product and save it to the pictures folder, to then attach to the new product. We selected ‘Oracle Exadata’ as our product.
-![](/./images/17.png "")
+![](./images/17.png "")
 
 Navigate to localhost/catalog/index.php. This is what you should see as a final product:
-![](/./images/18.png "")
+![](./images/18.png "")
 
 ### Step 5: Export .Ova File From VirtualBox & Extract VMDK
 
 From VirtualBox, shut down the osCommerce image (quitting out will also do this). Export the appliance from VirtualBox. Copy as seen in the image and set the file location for the .ova export. Keep in mind of the directory you are exporting to. Export will take about 5 minutes.
 
-![](/./images/19.png "")
-![](/./images/20.png "")
+![](./images/19.png "")
+![](./images/20.png "")
 
 Open a Terminal window (on your local machine, **NOT in Virtualbox**)  and change directories to where the .ova file was exported. The pwd command was used to show you the current directory that terminal was in. Use the command below to unzip the .ova file:
 ```
 tar -xvf [.ova file]
 ```
 You should expect to see a .vmdk file after it unzips.
-![](/./images/21.png "")
+![](./images/21.png "")
 
 ## Part 2. Bringing Snapshot to the Cloud
 
@@ -235,13 +235,13 @@ You should expect to see a .vmdk file after it unzips.
 Login to your Oracle Cloud tenancy and in the top left hamburger menu you will find
 “Networking.” Choose “Virtual Cloud Networks” from the list.
 
-![](/./images/22.png "")
+![](./images/22.png "")
 
 If you want to make a compartment, please refer to this [link](https://oracle-base.com/articles/vm/oracle-cloud-infrastructure-oci-create-a-compartment) to see how to make a compartment. 
 
 Select the option “Create Virtual Cloud Network.”
 
-![](/./images/23.png "")
+![](./images/23.png "")
 
 Select the option “Create Virtual Cloud Network Plus Related Resources.” This will generate the required resources for a publicly accessible subnet including default route tables, internet gateways, and security lists. All pre-generated resources will be displayed, e.g. “Create Internet Gateway.” Be choosing the related resources option we minimize additional config.
 
