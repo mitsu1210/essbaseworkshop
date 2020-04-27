@@ -24,7 +24,7 @@ Estimated time to complete this lab is three hours.
 * To learn about Oracle's DNS and Traffic Management check out this [link](https://docs.cloud.oracle.com/en-us/iaas/Content/EdgeServices/overview.htm)
 
 
-## Part 1. Transfer and synchronize webserver files and database files between primary instance and secondary instance.
+### Part 1. Transfer and synchronize webserver files and database files between primary instance and secondary instance.
 
 ### Step 1: Download and installing rsync
 Download rsync command on both the compute instances as follows:
@@ -35,7 +35,7 @@ sudo apt-get install rsync
 
 ### Step 2: Scp ssh key to primary compute OR Generate ssh key pair
 
-As written in the pre-reqs make sure you have setup ssh access from server 1 to server 2 and vice-versa. If you want to use the same ssh keys as the one you are using to ssh into oscommerce compute, you can scp the private key file from local to primary oscommerce instance by using the following command.
+As written in the pre-reqs make sure you have setup ssh access from primary server to secondary server and vice-versa. If you want to use the same ssh keys as the one you are using to ssh into oscommerce compute, you can scp the private key file from local to primary oscommerce instance by using the following:
 
 ![](./images/2.png "")
 
@@ -159,7 +159,7 @@ For production environments, you can run it as a cronjob. Run ‘crontab -e’, 
 
 Thus, we have the webserver files as well as the database files in a secondary server safe and with latest updates. Furthermore, we can setup cron jobs for automation rather than running the rsync and mysqldump commands manually every time.
 
-## Part 2. Configure DNS failover
+### Part 2. Configure DNS failover
 At this point of time, our primary server and secondary server are in sync. Lets proceed and configure the failover from the Oracle Cloud console. There are multiple ways to setup a failover like using keepalived, using load balancers and using DNS Traffic Management Steering policies in OCI. For the purpose of this lab, we will use the DNS Traffic Management Steering Policy in Oracle Cloud Infrastructure.
 
 ### Step 1:Login into both primary and secondary servers
