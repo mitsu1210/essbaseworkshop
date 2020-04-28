@@ -240,8 +240,8 @@ sudo service apache2 restart
 
 * Refer the following Youtube links for steps to create DNS failover -
 
-[link](https://www.youtube.com/watch?v=dfKeDh79HdQ)
-[link](https://www.youtube.com/watch?v=SnMumcIE1aw)
+* [Youtube link](https://www.youtube.com/watch?v=dfKeDh79HdQ)
+* [Youtube link](https://www.youtube.com/watch?v=SnMumcIE1aw)
 
 * Note: DNS will take 4-12 hours to propagate after you make changes**
 
