@@ -236,7 +236,7 @@ sudo service apache2 restart
 
 * For this section of a lab, you will need domain name. There are many domain name registrars like GoDaddy, NameCheap or Google, where you will be able to purchase domain names for about 2-3$. We are using Google as the domain name registrar for this lab. Any domain name should work for this exercise, hence, you can pick one of the cheaper domain names. 
 
-* If you do not have a domain name you can skim over steps 2,3 and 4 and straight away perform step 5. In step 5 u should be able to monitor ur instances health.
+* If you do not have a domain name, you can skim over steps 2,3 and 4 and directly move to step 5. In step 5 you should be able to monitor your instances health.
 
 * Refer the following Youtube links for steps to create DNS failover -
 
