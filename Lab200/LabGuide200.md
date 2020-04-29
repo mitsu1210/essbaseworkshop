@@ -169,8 +169,6 @@ Delete the oscommerce database and create an empty oscommerce database as follow
 
 Now run the following command to replicate the database
 
-![](./images/6.png "")
-
 Note: Run this command in  VM terminal and not in mysql terminal. 
 
 ```
@@ -182,6 +180,8 @@ In my case, the command looked like this:
 ```
 mysqldump --host=150.136.116.169 -P 3306 --user=root -poscommerce --add-drop-table --no-create-db --skip-lock-tables oscommerce | mysql --user=root -poscommerce oscommerce
 ```
+
+![](./images/6.png "")
 
 Check if the database tables are replicated properly by using the following:
 
