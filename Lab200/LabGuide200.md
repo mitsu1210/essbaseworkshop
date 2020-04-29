@@ -169,6 +169,10 @@ Delete the oscommerce database and create an empty oscommerce database as follow
 
 Now run the following command to replicate the database
 
+![](./images/6.png "")
+
+Note: Run this command in  VM terminal and not in mysql terminal. 
+
 ```
  mysqldump --host=1.2.3.4 --user=MYDBUSER -pMYDBPASSWORD --add-drop-table --no-create-db --skip-lock-tables MYDBNAME | mysql --user=MYDBUSER -pMYDBPASSWORD MYDBNAME
  ```
@@ -190,8 +194,6 @@ For production environments, you can run it as a cronjob. Run ‘crontab -e’, 
 ```
 0 0 * * * mysqldump...
 ```
-
-![](./images/6.png "")
 
 Thus, we have the webserver files as well as the database files in a secondary server safe and with latest updates. Furthermore, we can setup cron jobs for automation rather than running the rsync and mysqldump commands manually every time.
 
