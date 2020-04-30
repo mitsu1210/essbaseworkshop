@@ -6,7 +6,7 @@ Oracle offers a complete portfolio of products, services, and differentiated cap
 This lab series is part of *Oracle Cloud Infrastructure's Third Party Move & Improve* workshop. This series will walk you through the process of migrating an existing eCommerce application from an on-prem environment to being natively deployed within the cloud. It will walk you through how to capture a custom image of this app and deploy it on OCI with necessary infrastructure like Networking, Security Lists and route rules. The lab will also walk you through the process of making the application highly-available in the case of disaster scenarios by leveraging Oracle's DNS services for traffic steering. Finally, the lab will leverage PaaS services such as Autonomous Data Warehouse (ADW), Oracle Analytics Cloud (OAC), and Oracle Integration Cloud (OIC) in order to show how you can gain even more insight into your application data.
 
 Attached below is a sample architecture of the final solution:
-![](/images/Architecture.png)
+![](Architecture.png)
 
 *Note:* This lab is intended to be a comprehensive full cloud showcase. As such, it is assumed a user going through this workshop will be provisioning resources and creating users from scratch. If you decide to use existing infrastructure or resources, be aware and keep note of your namings so resources don't overlap and conflict.
 
@@ -16,16 +16,16 @@ Attached below is a sample architecture of the final solution:
 * Provision custom compute with OSCommerce Image
 * Provision underlying infrastructure such as networking, security lists etc
 * Make application Highly Available with Traffic Steering Policies and Active Failover
-* Provision OAC, OIC, and ADW Instances
-* Pull data from MySQL database into ADW
-* Perform Analytics with OAC
+* Provision Oracle Analytics Cloud instace, Oracle Integration Cloud instance, and Autonomous Data Warehouse Instance
+* Pull data from MySQL database into Oracle Autonomous Data Warehouse
+* Perform Analytics with Oracle Analytics Cloud 
 
 ### Required Artifacts
 * The following lab requires an Oracle Public Cloud account that will either be supplied by your instructor, or can be obtained through the following steps.
 * A cloud tenancy where you have the resources available to provision an ADW instance with 2 OCPUs, an OAC instance with 2 OCPUs, and an ODA instance.
 * Oracle Cloud Infrastructure supports the following browsers and versions: Google Chrome 69 or later, Safari 12.1 or later, Firefox 62 or later.
 
-## Free Account Sign-Up
+## Register for Free Oracle Trial Account
 * Bookmark this page for future reference.
 * Please click on the URL to receive your [Free Account](https://myservices.us.oraclecloud.com/mycloud/signup?language=en&sourceType=:ex:tb:::RC_NAMK190227P00084:PredictDemandML_ADW_HOL&SC=:ex:tb:::RC_NAMK190227P00084:PredictDemandML_ADW_HOL&pcode=NAMK190227P00084) and complete all required steps. When you complete the registration process you'll receive a $300 credit that will enable you to complete the lab for free. Additionally, you'll have 1000s of hours left over to continue to explore the Oracle Cloud.
 * Soon after requesting your trial you will receive an activation email. Once that email is received and you have logged in to your environment you can begind the lab.

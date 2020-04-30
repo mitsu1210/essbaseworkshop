@@ -1,7 +1,7 @@
 # Lab 300: Integrate Oracle Cloud Platform services with your app
 
 ## Introduction
-This lab walks you through the steps to integrate your third party app with Oracle Cloud PaaS. First, we will connect MySQL database and then Oracle Autonomous Data warehouse to Oracle Integration Cloud. After both the connections has been established, we will migrate the data from MySQL database to Oracle Autonomous Datawarehouse. Lastly, we will connect Oracle Analytics Cloud service to Oracle Autonomous Data warehouse to perform some analytics.
+This lab walks you through the steps to integrate your third party app with Oracle Cloud PaaS. First, we will connect MySQL database and then Oracle Autonomous Data warehouse to Oracle Integration Cloud. After both the connections has been established, we will migrate the data from MySQL database to Oracle Autonomous Datawarehouse(ADW). Lastly, we will connect Oracle Analytics Cloud service to Oracle Autonomous Data warehouse to perform some analytics.
 
 ### Objectives
 * Establish connection from MySQL to Oracle Integration Cloud
@@ -31,9 +31,9 @@ Estimated time to complete this lab is two hours.
 
 Before moving forward, if you have been provided a wallet file, a username, and password to an ADW or ATP, please save this information and continue to the next step. Otherwise, read the step below:
 
-If you have not been provided a username, password, and wallet file, please follow the lab guide here [link](https://github.com/oracle/learning-library/blob/master/workshops/erp-adw-oac/LabGuide100ProvisionAnADWDatabase.md). Once you complete making an ADW or ATP instance, please download the Wallet file from the console.
+If you have not been provided a username, password, and wallet file, please follow the lab guide (Part 1 and Part 2) here [link](https://github.com/oracle/learning-library/blob/master/workshops/erp-adw-oac/LabGuide100ProvisionAnADWDatabase.md). Once you complete making an ADW or ATP instance, please download the Wallet file from the console.
 
-Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you.
+Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you. Follow instructions from [here](https://docs.cloud.oracle.com/en-us/iaas/integration/doc/creating-oracle-integration-instance.html) if you need to create one. 
 In the Oracle Integration Cloud home page, click on the Menu icon in the top left and click on Integration.
 
 ![](./images/1.png "")
@@ -46,25 +46,43 @@ A new window will load. On the top right, search for “MySQL” and you will be
 
 ![](./images/3.png "")
 
-On this page, name your connection. In this lab, we used “MySQL_osCommerce”. Feel free to add a Description to this connection if you’d like. For the role, make sure that “Trigger and Invoke” is enabled.
+On this page, name your connection. In this lab, we used “MySQL_osCommerce”. You can optionally add a description to this connection. For the role, make sure that “Trigger and Invoke” is enabled.
 
 ![](./images/4.png "")
 
 
 In the next page, you will be asked to provide information for Connection Properties, Security, and Agent Group. To edit these, click on their respective Configure button and enter the following information:
+
 Host: This will be the public IP to your compute instance
+
 Port: Use port 3306 since this is a MySQL database
+
 Database Name: oscommerce. This is the database name we used in Step 2
+
 Username & Password: Use the credentials that you used in Step 2
+
 Agent Group: In the Oracle Integration Cloud instance, there will be an Agent Group preconfigured for you. Select that one. If there is no agent, follow the steps from this [link](https://docs.oracle.com/en/cloud/paas/integration-cloud/integrations-user/agent-download-and-installation.html#GUID-72491B67-7445-4B52-94FA-CEC8488E0F4A) to install a new agent. 
+
+Please note: In order for our OIC instance to communicate with MySQL database, make sure the agent has write permission to your MySQL database. Please perform the following steps in order for to do that:
+
+1. In your primary compute instance, go to MySQL console and execute following command:
+
+Here, ip address is the ip address of your agent
+
+```
+CREATE USER 'root'@'ip_address' IDENTIFIED BY 'some_pass';
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';
+
+```
 
 ![](./images/5.png "")
 
 ### Step 2: Establish connection from Oracle Autonomous Database and Oracle Integration Cloud
 
-Creating a connection between an Oracle Autonomous Database and Oracle Integration Cloud is a very similar process to creating a connection between our MySQL database and OIC. Within our ADW instance, we have already created some tables that will be used later in this lab.
+Creating a connection between an Oracle Autonomous Database and Oracle Integration Cloud is a very similar process to creating a connection between our MySQL database and OIC. 
 
-Click on the same create button under the Connections tab and search for your respective Oracle Autonomous Database, either Autonomous Transaction Processing or Autonomous Warehouse. In this lab, we chose an Oracle Autonomous Transaction Processing database.
+Click on the same create button under the Connections tab and search for your respective Oracle Autonomous Database, either Autonomous Transaction Processing or Autonomous Warehouse. 
 
 ![](./images/6.png "")
 
@@ -75,6 +93,45 @@ In the next window, you will need to provide your Oracle Database wallet file, a
 ### Step 3: Establish an integration between the ADW and MySQL connections
 
 Now that we have both connections made in Oracle Integration Cloud for our MySQL and Autonomous Database, we will need to establish an integration for both to communicate with each other.
+
+Before making connection, we have to ensure the target database table exists in ADW. For that follow the instructions here:
+
+1. On your ADW console home page, click service console
+
+![](./images/5a.png "")
+
+2. Click SQL Developer Web
+
+![](./images/5b.png "")
+
+3. In this screen, use your ADW credentials
+
+![](./images/5c.png "")
+
+4. Use the following code to generate the Products table
+
+![](./images/5d.png "")
+
+```
+CREATE TABLE "ADMIN"."PRODUCTS" 
+   (	"PRODUCTS_ID" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_QUANTITY" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_MODEL" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_IMAGE" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_PRICE" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_DATE_ADDED" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_LAST_MODIFIED" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_DATE_AVAILABLE" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_WEIGHT" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_STATUS" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_TAX_CLASS_ID" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"MANUFACTURERS_ID" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP", 
+	"PRODUCTS_ORDERED" VARCHAR2(250 BYTE) COLLATE "USING_NLS_COMP"
+   )  DEFAULT COLLATION "USING_NLS_COMP" ;
+
+
+```
+
 
 Back on the Designer Tab, click on “Integrations”. When you are in the Integrations tab, click
 on create
