@@ -2,7 +2,7 @@
 
 ## Introduction
 Below, we have a demo of how you can setup disaster recovery for your app easily in cloud leveraging different availability domains (or across regions). One of the key principles of designing high availability solutions is to avoid single point of failure.
- We will deploy Compute instances that perform the same tasks in multiple availability domains. You can use the custom image you used for primary compute instance to deploy secondary compute instance. This design removes a single point of failure by introducing redundancy. The following diagram illustrates how we can achieve high availability.
+ We will deploy Compute instances that perform the same tasks in multiple availability domains. You can use the custom image you used for primary compute instance to deploy secondary compute instance in a different Availability domain. This design removes a single point of failure by introducing redundancy. The following diagram illustrates how we can achieve high availability.
 
 ![](./images/1.png "")
 
@@ -14,7 +14,7 @@ Below, we have a demo of how you can setup disaster recovery for your app easily
 
 
 ### Required Artifacts
-* 2 OsCommerce compute servers (You already have primary oscommerce compute instance. Spin up a secondary compute instance from your oscommerce custom image)
+* 2 OsCommerce compute servers (You already have primary oscommerce compute instance. Spin up a secondary compute instance from your oscommerce custom image into a different Availability domain than the AD where your primary compute reside)
 * Make sure you have setup ssh access from local to both the servers and from primary server to secondary server and vice-versa (More information in the lab below)
 * 1 Domain name (To demonstrate failover)
 
