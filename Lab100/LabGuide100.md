@@ -343,7 +343,7 @@ touch ~/.ssh/authorized_keys
 
 Open the authorized_keys file and past your public key. Make sure to save and exit. Change permissions on the file:
 ```
-sudo 600 authorized_keys
+sudo chmod 600 authorized_keys
 ```
 
 **Install Desktop Environment and VNC Server**
@@ -390,7 +390,8 @@ x-terminal-emulator -geometry 80x24+10+10 -ls -title “$VNCDESKTOP Desktop” &
 x-window-manager &
 
 gnome-panel &
-gnome-settings-daemon & metacity &
+gnome-settings-daemon &
+ metacity &
 nautilus &
 ```
 
