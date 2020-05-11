@@ -268,7 +268,9 @@ Storage from the secondary list and choose "create bucket." Enter a name for the
 ![](./images/29.png "")
 
 ### Step 3: Upload VMDK File to Bucket & Create PAR
-Select the bucket you created and then click the blue bottom within Objects named “Upload Objects.” Click “select files” and then locate the .vmdk file created previously from the unzipped .ova. **This Step can take a significant amount of time depending on your internet speed. In rare instances upload has taken over an hour, but typically this is much quicker.**
+Select the bucket you created and then click the blue bottom within Objects named “Upload Objects.” Click “select files” and then locate the .vmdk file created previously from the unzipped .ova.
+
+**Note: This step can take a significant amount of time depending on your internet speed. In rare instances upload has taken over an hour, but typically this is much quicker.**
 
 ![](./images/30.png "")
 ![](./images/31.png "")
