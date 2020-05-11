@@ -448,6 +448,7 @@ Once all of those blocks are in your service script, you can hit Ctrl and â€˜Xâ€
 save and press enter to save and close to the file. **NOTE: Please confirm that the copy & past reflects the above screenshot**. To make this service script executable and then to start a new VNC instance run the below commands:
 ```
 sudo chmod +x /etc/init.d/vncserver
+sudo chmod +x ~/.vnc/xstartup
 sudo service vncserver start
 ```
 
