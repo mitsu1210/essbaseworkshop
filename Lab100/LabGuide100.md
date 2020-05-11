@@ -134,8 +134,8 @@ Exit with Control + C
 
 Setup SSH:
 ```
-sudo apt-get install openssh-server sudo
-apt-get install ssh
+sudo apt-get install openssh-server
+sudo apt-get install ssh
 ```
 Install the below package to save persistent iptables updates. Select 'Yes' to save Firewall rules.
 ```
@@ -237,7 +237,7 @@ Login to your Oracle Cloud tenancy and in the top left hamburger menu you will f
 
 ![](./images/22.png "")
 
-If you want to make a compartment, please refer to this [link](https://oracle-base.com/articles/vm/oracle-cloud-infrastructure-oci-create-a-compartment) to see how to make a compartment. 
+If you want to make a compartment, please refer to this [link](https://oracle-base.com/articles/vm/oracle-cloud-infrastructure-oci-create-a-compartment) to see how to make a compartment.
 
 Select the option “Create Virtual Cloud Network.”
 
@@ -268,7 +268,7 @@ Storage from the secondary list and choose "create bucket." Enter a name for the
 ![](./images/29.png "")
 
 ### Step 3: Upload VMDK File to Bucket & Create PAR
-Select the bucket you created and then click the blue bottom within Objects named “Upload Objects.” Click “select files” and then locate the .vmdk file created previously from the unzipped .ova
+Select the bucket you created and then click the blue bottom within Objects named “Upload Objects.” Click “select files” and then locate the .vmdk file created previously from the unzipped .ova. **This Step can take a significant amount of time depending on your internet speed. In rare instances upload has taken over an hour, but typically this is much quicker.**
 
 ![](./images/30.png "")
 ![](./images/31.png "")
@@ -417,16 +417,22 @@ DEPTH="16"
 GEOMETRY="1024x768"
 OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
 . /lib/lsb/init-functions
+
 case "$1" in start)
-log_action_begin_msg "Starting vncserver for user '${USER}' on localhost:${DISPLAY}" su ${USER} -c "/usr/bin/vncserver ${OPTIONS}"
+log_action_begin_msg "Starting vncserver for user '${USER}' on localhost:${DISPLAY}"
+su ${USER} -c "/usr/bin/vncserver ${OPTIONS}"
 ;;
+
 stop)
-log_action_begin_msg "Stopping vncserver for user '${USER}' on localhost:${DISPLAY}" su ${USER} -c "/usr/bin/vncserver -kill :${DISPLAY}"
+log_action_begin_msg "Stopping vncserver for user '${USER}' on localhost:${DISPLAY}"
+su ${USER} -c "/usr/bin/vncserver -kill :${DISPLAY}"
 ;;
+
 restart)
 $0 stop
 $0 start
 ;;
+
 esac
 exit 0
 ```
