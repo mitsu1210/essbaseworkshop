@@ -468,6 +468,7 @@ oscommerce-VirtualBox:1) In this case it will be port 1 = 5901. If it was :2 the
 *Debug*: If the pipe is broken for your local terminal instance. SSH into the ubuntu instance and kill the previous vncserver instance. Replace :1 with the instance number created.
 
 *Additonal Troubleshooting - Change Permissions:*
+
 If you see a grey screen after attempting to connect make sure these two files are executables:
 ```
 sudo chmod +x /etc/init.d/vncserver
@@ -478,6 +479,7 @@ Restart the service and attempt to reconnect via VNCViewer:
 sudo service vncserver start
 ```
 *Additional Troubleshooting - Lynx Broswer*
+
 If you find the above does not work, you can use Lynx broswer to view the page. Run the following commands:
 ```
 sudo apt install lynx
