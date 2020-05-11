@@ -401,6 +401,7 @@ nautilus &
 Save the file once the commands are properly pasted in. Press Control+X to save. When prompted to “Save modified buffer?”, Press Y. Do not change the name of the file. Press Enter to continue. Your file should look identical to the terminal command below. **NOTE: Please confirm that the copy & past reflects the below screenshot**
 ![](./images/44.png "")
 
+
 **Create a VNC Service File**
 
 To easily control our new VNC server, we should set it up as an Ubuntu service. This will allow us to start, stop, and restart our VNC server as needed. First, open a new service file in /etc/init.d with nano and copy the following code into the file (reference screenshot).
@@ -465,6 +466,13 @@ If you are using a graphical SSH client, like PuTTY, use <public_ip_address> as 
 oscommerce-VirtualBox:1) In this case it will be port 1 = 5901. If it was :2 then it will be 5902.
 
 *Debug*: If the pipe is broken for your local terminal instance. SSH into the ubuntu instance and kill the previous vncserver instance. Replace :1 with the instance number created.
+
+**NOTE: If you have issues viewing the App in VNCViewer, add the following lines directly under #!/bin/bash in ~/.vnc/xstartup. Kill the vncserver and restart it and retry viewing**
+```
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+startxfce4 &
+```
 
 ```
 vncserver -kill :1
