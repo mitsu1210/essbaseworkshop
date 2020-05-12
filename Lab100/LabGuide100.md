@@ -134,8 +134,8 @@ Exit with Control + C
 
 Setup SSH:
 ```
-sudo apt-get install openssh-server sudo
-apt-get install ssh
+sudo apt-get install openssh-server
+sudo apt-get install ssh
 ```
 Install the below package to save persistent iptables updates. Select 'Yes' to save Firewall rules.
 ```
@@ -237,7 +237,7 @@ Login to your Oracle Cloud tenancy and in the top left hamburger menu you will f
 
 ![](./images/22.png "")
 
-If you want to make a compartment, please refer to this [link](https://oracle-base.com/articles/vm/oracle-cloud-infrastructure-oci-create-a-compartment) to see how to make a compartment. 
+If you want to make a compartment, please refer to this [link](https://oracle-base.com/articles/vm/oracle-cloud-infrastructure-oci-create-a-compartment) to see how to make a compartment.
 
 Select the option “Create Virtual Cloud Network.”
 
@@ -268,7 +268,9 @@ Storage from the secondary list and choose "create bucket." Enter a name for the
 ![](./images/29.png "")
 
 ### Step 3: Upload VMDK File to Bucket & Create PAR
-Select the bucket you created and then click the blue bottom within Objects named “Upload Objects.” Click “select files” and then locate the .vmdk file created previously from the unzipped .ova
+Select the bucket you created and then click the blue bottom within Objects named “Upload Objects.” Click “select files” and then locate the .vmdk file created previously from the unzipped .ova.
+
+**Note: This step can take a significant amount of time depending on your internet speed. In rare instances upload has taken over an hour, but typically this is much quicker.**
 
 ![](./images/30.png "")
 ![](./images/31.png "")
@@ -389,7 +391,7 @@ nano ~/.vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 xsetroot -solid grey
 vncconfig -iconic &
-x-terminal-emulator -geometry 80x24+10+10 -ls -title “$VNCDESKTOP Desktop” &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
 x-window-manager &
 
 gnome-panel &
@@ -400,6 +402,7 @@ nautilus &
 
 Save the file once the commands are properly pasted in. Press Control+X to save. When prompted to “Save modified buffer?”, Press Y. Do not change the name of the file. Press Enter to continue. Your file should look identical to the terminal command below. **NOTE: Please confirm that the copy & past reflects the below screenshot**
 ![](./images/44.png "")
+
 
 **Create a VNC Service File**
 
@@ -417,16 +420,22 @@ DEPTH="16"
 GEOMETRY="1024x768"
 OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY} -localhost"
 . /lib/lsb/init-functions
+
 case "$1" in start)
-log_action_begin_msg "Starting vncserver for user '${USER}' on localhost:${DISPLAY}" su ${USER} -c "/usr/bin/vncserver ${OPTIONS}"
+log_action_begin_msg "Starting vncserver for user '${USER}' on localhost:${DISPLAY}"
+su ${USER} -c "/usr/bin/vncserver ${OPTIONS}"
 ;;
+
 stop)
-log_action_begin_msg "Stopping vncserver for user '${USER}' on localhost:${DISPLAY}" su ${USER} -c "/usr/bin/vncserver -kill :${DISPLAY}"
+log_action_begin_msg "Stopping vncserver for user '${USER}' on localhost:${DISPLAY}"
+su ${USER} -c "/usr/bin/vncserver -kill :${DISPLAY}"
 ;;
+
 restart)
 $0 stop
 $0 start
 ;;
+
 esac
 exit 0
 ```
@@ -439,6 +448,7 @@ Once all of those blocks are in your service script, you can hit Ctrl and ‘X�
 save and press enter to save and close to the file. **NOTE: Please confirm that the copy & past reflects the above screenshot**. To make this service script executable and then to start a new VNC instance run the below commands:
 ```
 sudo chmod +x /etc/init.d/vncserver
+sudo chmod +x ~/.vnc/xstartup
 sudo service vncserver start
 ```
 
@@ -460,8 +470,23 @@ oscommerce-VirtualBox:1) In this case it will be port 1 = 5901. If it was :2 the
 
 *Debug*: If the pipe is broken for your local terminal instance. SSH into the ubuntu instance and kill the previous vncserver instance. Replace :1 with the instance number created.
 
+*Additonal Troubleshooting - Change Permissions:*
+
+If you see a grey screen after attempting to connect make sure these two files are executables:
 ```
-vncserver -kill :1
+sudo chmod +x /etc/init.d/vncserver
+sudo chmod +x ~/.vnc/xstartup
+```
+Restart the service and attempt to reconnect via VNCViewer:
+```
+sudo service vncserver start
+```
+*Additional Troubleshooting - Lynx Broswer*
+
+If you find the above does not work, you can use Lynx broswer to view the page. Run the following commands:
+```
+sudo apt install lynx
+lynx localhost/catalog/index.php
 ```
 
 ![](./images/46.png "")
