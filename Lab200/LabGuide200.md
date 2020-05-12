@@ -1,7 +1,7 @@
 # Lab 200: High Availability for the OsCommerce instance 
 
 ## Introduction
-Below, we have a demo of how you can setup disaster recovery for your app easily in cloud leveraging different availability domains (or across regions). One of the key principles of designing high availability solutions is to avoid single point of failure.
+Below, we have a demo of how you can setup disaster recovery for your app in Oracle Cloud leveraging different availability domains (or across regions). One of the key principles of designing high availability solutions is to avoid single point of failure.
  We will deploy Compute instances that perform the same tasks in multiple availability domains. You can use the custom image you used for primary compute instance to deploy secondary compute instance in a different Availability domain. This design removes a single point of failure by introducing redundancy. The following diagram illustrates how we can achieve high availability.
 
 ![](./images/1.png "")
@@ -9,14 +9,14 @@ Below, we have a demo of how you can setup disaster recovery for your app easily
 ### Objectives
 
 * Learn how to leverage Oracle Cloud infrastructure to create a high available and disaster recovery solution for your applications.
-* Learn how to replicate data across multiple compute instances using Rsync, mysqldump utility.
+* Learn how to replicate your primary server to secondary server using Rsync, mysqldump utility.
 * Learn how to provision and configure DNS Failover with Traffic Management Steering policy
 
 
 ### Required Artifacts
 * 2 OsCommerce compute servers (You already have primary oscommerce compute instance. Spin up a secondary compute instance from your oscommerce custom image into a different Availability domain than the AD where your primary compute reside)
 * Make sure you have setup ssh access from local to both the servers and from primary server to secondary server and vice-versa (More information in the lab below)
-* 1 Domain name (To demonstrate failover)
+* A Domain name (To demonstrate failover)
 
 Estimated time to complete this lab is three hours.
 
@@ -28,20 +28,30 @@ Estimated time to complete this lab is three hours.
 
 ## Part 1. Transfer and synchronize webserver files and database files between primary instance and secondary instance.
 
-### Step 1: Download and installing rsync
-Download rsync command on both the compute instances as follows:
+### Step 1: Installing rsync utility on primary and secondary compute instances
+
+Run the following command on primary compute instance.
 
 ``` 
 sudo apt-get install rsync
 ```
+Repeat the same for secondary compute instance.
 
-### Step 2: Scp ssh key to primary compute OR Generate ssh key pair
+### Step 2: Secure copy your private ssh key to primary compute OR Generate new ssh key pair
 
-As written in the pre-reqs make sure you have setup ssh access from primary server to secondary server and vice-versa. If you want to use the same ssh keys as the one you are using to ssh into oscommerce compute, you can scp the private key file from local to primary oscommerce instance by using the following:
+As written in the pre-reqs, we will require to setup ssh access from primary server to secondary server and vice-versa. If you want to use the same ssh keys as the one you are using to ssh into oscommerce compute, you can scp the private key file from local to primary oscommerce instance by using the following:
+
+Run the following command in your local terminal
+
+```
+scp id_rsa oscommerce@your-ip-address:/home/oscommerce/.ssh/
+```
+
+Note: scp command is included in mac/linux, so need to download anything. Howevever, if you are using Windows, install PuTTy which includes PSCP or you can also use [WinSCP](https://winscp.net/eng/index.php)
 
 ![](./images/2.png "")
 
-Alternatively, we can use: Method 2 - Create new keys
+If you want to use new ssh keys, use Method 2 - Create new keys
 
 On each server run:
 
@@ -67,7 +77,7 @@ ssh into Server B, and append the contents of that to the it's authorized_keys f
 cat >> ~/.ssh/authorized_keys
 ```
 
-Paste your clipboard contents. Rsync is configured to use ssh by default**
+Paste your clipboard contents. 
 
 ### Step 3: Replicate web server files and database files
 
@@ -108,8 +118,7 @@ If you go to secondary server, you can see the following files in the /var/www/h
 
 We have successfully replicated the web server files. Similaryly, we can replicate the mysql files as well. We can do this in many ways:
 * Using rsync as above
-*	Using mysql dump utility
-*	Using Golden Gate image in OCI [Learn more](https://blogs.oracle.com/dataintegration/done-cancel-v12)
+* Using mysql dump utility
 
 
 ### Step 4: Replicate mysql database files
