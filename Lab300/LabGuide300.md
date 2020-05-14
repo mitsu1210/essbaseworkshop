@@ -13,7 +13,7 @@ This lab walks you through the steps to integrate your third party app with Orac
 
 
 ### Required Artifacts
-* The following lab requires an Oracle Public Cloud account. You may use your own cloud account, a cloud account that you obtained through a trial, or a training account whose details were given to you by an Oracle instructor.
+
 * Complete Lab 100 and 200
 * Access to Oracle Integration Cloud Service
 * Access to Oracle Autonomous Data Warehouse
@@ -29,11 +29,11 @@ Estimated time to complete this lab is two hours.
 
 ### Step 1: Establish connection from MySQL to Oracle Integration Cloud
 
-Before moving forward, if you have been provided a wallet file, a username, and password to an ADW or ATP, please save this information and continue to the next step. Otherwise, read the step below:
+Before moving forward, if you have been provided a wallet file, a username, and password to an ADW or ATP, please keep this information handy and continue to the next step. Otherwise, read the step below:
 
-If you have not been provided a username, password, and wallet file, please follow the lab guide (Part 1 and Part 2) here [link](https://github.com/oracle/learning-library/blob/master/workshops/erp-adw-oac/LabGuide100ProvisionAnADWDatabase.md). Once you complete making an ADW or ATP instance, please download the Wallet file from the console.
+If you do not have this information, please follow the lab guide (Part 1 and Part 2) here [link](https://github.com/oracle/learning-library/blob/master/workshops/erp-adw-oac/LabGuide100ProvisionAnADWDatabase.md). Once you complete making an ADW or ATP instance, please download the Wallet file from the console. [More info](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/connect-download-wallet.html#GUID-B06202D2-0597-41AA-9481-3B174F75D4B1)
 
-Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you. Follow instructions from [here](https://docs.cloud.oracle.com/en-us/iaas/integration/doc/creating-oracle-integration-instance.html) if you need to create one. 
+Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you. If you do not have an Oracle Integration Cloud instance, follow instructions from [here](https://docs.cloud.oracle.com/en-us/iaas/integration/doc/creating-oracle-integration-instance.html) and create one.
 In the Oracle Integration Cloud home page, click on the Menu icon in the top left and click on Integration.
 
 ![](./images/1.png "")
