@@ -211,7 +211,7 @@ Thus, we have the webserver files as well as the database files in a secondary s
 ## Part 2. Configure DNS failover
 At this point of time, our primary server and secondary server are in sync. Lets proceed and configure the failover from the Oracle Cloud console. There are multiple ways to setup a failover like using keepalived, using load balancers and using DNS Traffic Management Steering policies in OCI. For the purpose of this lab, we will use the DNS Traffic Management Steering Policy in Oracle Cloud Infrastructure.
 
-### Step 1:Login into both primary and secondary servers
+### Step 1: Login into both primary and secondary servers
 
 ssh into both compute instances
 
@@ -241,20 +241,22 @@ Restart the server using the command
 sudo service apache2 restart
 ```
 
+Now, if you hit your public ip address in the browser, you should be able to see your app running. 
+
 ### If you already have your DNS Zone within Oracle Cloud Infrastructure, Skip step 2 and step 3
 
 ### Step 2: Export DNS zone file
 
 **Prequisite**
 
-* For this section of a lab, you will need domain name. There are many domain name registrars like GoDaddy, NameCheap or Google, where you will be able to purchase domain names for about 2-3$. We are using Google as the domain name registrar for this lab. Any domain name should work for this exercise, hence, you can pick one of the cheaper domain names. 
+* For this section of a lab, you will need a domain name. There are many domain name registrars like GoDaddy, NameCheap or Google, where you will be able to purchase domain names for about $2-3. We are using Google as the domain name registrar for this lab. Any domain name should work for this exercise.
 
-* Refer the following Youtube links for steps to create DNS failover -
+We recommend you to watch the below videos in order to get an idea about OCI DNS and how failover works.
 
 * [What is DNS?](https://www.youtube.com/watch?v=SnMumcIE1aw)
 * [DNS overview & Demo](https://www.youtube.com/watch?v=dfKeDh79HdQ)
 
-* Note: DNS will take 4-12 hours to propagate after you make changes**
+* Note: DNS will take 4-12 hours to propagate after you make changes
 
 Export the resource record. This file would be exported as a .txt file. Store in a secure location, we would need the file later in the lab
 
@@ -295,7 +297,7 @@ I’m using google-domain in this case. Add name servers to your domain name ser
 
 ### Step 4: Add an "A" record to DNS zone
 
-There are many record types you can add to your zone, depending on your goals for the zone and its DNS management. For this Lab, we would add an “A” record. For more information about record types go to Supported Resource Records (https://docs.cloud.oracle.com/en-us/iaas/Content/DNS/Tasks/managingdnszones.htm)
+There are many record types you can add to your zone, depending on your goals for the zone and its DNS management. For this Lab, we would add an “A” record. For more information about record types refer [Supported Resource Records](https://docs.cloud.oracle.com/en-us/iaas/Content/DNS/Tasks/managingdnszones.htm)
 
 Navigate back to Oracle cloud console, open the navigation menu. Under Core Infrastructure, go to Networking and click DNS Zone Management.
 
@@ -361,7 +363,7 @@ In the Create Health Check dialog box, enter the following:
 
 ![](./images/23.png "")
 
-Attached the sub-domain name you create earlier to the policy
+Attach the sub-domain name you create earlier to the policy
 
 ![](./images/24.png "")
 
@@ -373,7 +375,7 @@ With a  web browser, access the oscommerce application using the sub-domain name
 
 Example: "public1.oscommercesite.com"
 
-Test the failover mechanism by stopping apache2 service on the mater node
+Test the failover mechanism by stopping apache2 service on the master node (primary server)
 
 Login into the master node and stop apache service
 
@@ -386,3 +388,7 @@ sudo /etc/init.d/apache2 stop
 Check the failover policy overview, the master node’s heath-check status should have changed from “healthy” to “unhealthy “
 
 ![](./images/25.png "")
+
+However, if you go to your domain name - public1.oscommercesite.com, your website should still be running since we configured a failover.
+
+Thus we can set up disaster recovery for your app in OCI easily and avoid single point of failure.
