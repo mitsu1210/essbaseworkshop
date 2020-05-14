@@ -109,14 +109,14 @@ Please note: For the purpose of this lab, we are using chmod 777, however settin
 Now, we will perform the rsync command from primary server to secondary server to replicate the files. Run the following command on server 1 (primary). The ip address below is for the secondary server.
 
 ```
-rsync -r /var/www/html/ oscommerce@129.146.108.71:/var/www/html/
+rsync -r /var/www/html/ oscommerce@secondary-sercer-ip:/var/www/html/
 ```
 
 If you go to secondary server, you can see the following files in the /var/www/html directory
 
 ![](./images/4.png "")
 
-We have successfully replicated the web server files. Similaryly, we can replicate the mysql files as well. We can do this in many ways:
+We have successfully replicated the web server files. Similarly, we can replicate the mysql files as well. We can do this in many ways:
 * Using rsync as above
 * Using mysql dump utility
 
@@ -178,7 +178,7 @@ Delete the oscommerce database and create an empty oscommerce database as follow
 
 Now run the following command to replicate the database
 
-Note: Run this command in  VM terminal and not in mysql terminal. 
+Note: Run this command in  secondary server terminal (not in mysql terminal) 
 
 ```
  mysqldump --host=1.2.3.4 --user=MYDBUSER -pMYDBPASSWORD --add-drop-table --no-create-db --skip-lock-tables MYDBNAME | mysql --user=MYDBUSER -pMYDBPASSWORD MYDBNAME
@@ -189,6 +189,8 @@ In my case, the command looked like this:
 ```
 mysqldump --host=150.136.116.169 -P 3306 --user=root -poscommerce --add-drop-table --no-create-db --skip-lock-tables oscommerce | mysql --user=root -poscommerce oscommerce
 ```
+
+Note: Here, the host ip address should be the ip address of the primary server since we are replicating from primary to secondary server.
 
 ![](./images/6.png "")
 
