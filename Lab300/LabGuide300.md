@@ -6,10 +6,10 @@ This lab walks you through the steps to integrate your third party app with Orac
 ### Objectives
 * Establish connection from MySQL to Oracle Integration Cloud
 * Establish connection from Oracle Autonomous Database and Oracle Integration Cloud
-* Establish an integration between the ADW and MySQL connections
-* Create an OAC Instance
-* Access your new OAC Instance
-* Connect an ADW/ATP Instance to OAC
+* Establish an integration between the Autonomous Data Warehouse and MySQL connections
+* Create an Oracle Analytics Cloud Instance
+* Access your new Oracle Analytics Cloud Instance
+* Connect an Autonomous Data Warehouse/Autonomous Transaction Processing Instance to OAC
 
 
 ### Required Artifacts
