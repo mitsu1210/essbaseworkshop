@@ -257,7 +257,7 @@ It's vitally important that we lock down this application as malicious third par
 
 For production instances **never** open up all traffic via 0.0.0.0/0 on a given port. This will make your application extremely vulnerable to third party attackers. In this lab we will do this for the sake of easy configuration but it is highly recommended that after the lab you lock these ports down.
 
-![](./images/25.png "")
+![](./images/ingress.png "")
 ![](./images/26.png "")
 
 ### Step 2: Create Object Storage Bucket
