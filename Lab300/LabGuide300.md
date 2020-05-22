@@ -101,7 +101,7 @@ Run the following command to start the agent -
 nohup java -jar connectivityagent.jar
 ```
 
-![](./images/agent_4.png "")
+![](./images/Agent_4.png "")
 
 
 In the Oracle Integration Cloud home page, click on the Menu icon in the top left and click on Integration.
