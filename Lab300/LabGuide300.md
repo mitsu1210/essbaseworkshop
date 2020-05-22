@@ -41,11 +41,11 @@ Login to your OIC instance. In the left navigation pane, click Integrations, the
 
 Create a new agent by clicking the button - Create Agent Group. Give the agent name as "oscommerce". And click on Create button.
 
-![](./images/agent_1.png "")
+![](./images/Agent_1.png "")
 
 Next, download the agent zip folder by clicking on Download > Connectivity Agent.
 
-![](./images/agent_2.png "")
+![](./images/Agent_2.png "")
 
 SSH to the oscommerce primary instance. Create a directory in oscommerce compute for oic agent. For example - /home/oscommerce/oicagent
 
@@ -63,9 +63,9 @@ unzip oic_connectivity_agent.zip
 
 Download JDK and MySQL agent from the links and copy it to the oscommerce compute using scp command as step 4.
 
-![](./images/agent_2a.png "")
+![](./images/Agent_2a.png "")
 
-![](./images/agent_2b.png "")
+![](./images/Agent_2b.png "")
 
 - Java SE Development Kit 8u241 - jdk-8u241-linux-x64.tar.gz - https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html
 
@@ -83,15 +83,12 @@ tar zxvf jdk-8u241-linux-x64.tar.gz
 
 Navigate to oicagent and Modify InstallerProfile.cfg file to include the following information:
 
-# Required Parameters
-# oic_URL format should be https://hostname:sslPort
-
 oic_URL= https://oic_host:ssl_port
 agent_GROUP_IDENTIFIER= Agent group identifier created on step 2
 oic_USER= non-federated user
 oic_PASSWORD= non-federated password
 
-![](./images/agent_3.png "")
+![](./images/Agent_3.png "")
 
 Now within the oicagent directory, run the following two commands to set the Java home directory.
 
