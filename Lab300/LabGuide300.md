@@ -34,6 +34,79 @@ Before moving forward, if you have been provided a wallet file, a username, and 
 If you do not have this information, please follow the lab guide (Part 1 and Part 2) here [link](https://github.com/oracle/learning-library/blob/master/workshops/erp-adw-oac/LabGuide100ProvisionAnADWDatabase.md). Once you complete making an ADW or ATP instance, please download the Wallet file from the console. [More info](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/connect-download-wallet.html#GUID-B06202D2-0597-41AA-9481-3B174F75D4B1)
 
 Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you. If you do not have an Oracle Integration Cloud instance, follow instructions from [here](https://docs.cloud.oracle.com/en-us/iaas/integration/doc/creating-oracle-integration-instance.html) and create one.
+
+For this lab, we will also need an OIC agent in order to perform connections to web app's database. Make one by following the instructions below:
+
+Login to your OIC instance. In the left navigation pane, click Integrations, then click Agents.
+
+Create a new agent by clicking the button - Create Agent Group. Give the agent name as "oscommerce". And click on Create button.
+
+![](./images/agent_1.png "")
+
+Next, download the agent zip folder by clicking on Download > Connectivity Agent.
+
+![](./images/agent_2.png "")
+
+SSH to the oscommerce primary instance. Create a directory in oscommerce compute for oic agent. For example - /home/oscommerce/oicagent
+
+Secure copy (scp/winscp) file from your local computer to the oscommerce instance by running the following command in a terminal window - 
+
+```
+scp -i /Users/mimehta/Desktop/sshkeybundle/privateKey /Users/mimehta/Desktop/oic_connectivity_agent opc@132.145.167.51:/home/opc/oicagent
+```
+
+Unzip oic_connectivity_agent.zip using the command 
+
+```
+unzip oic_connectivity_agent.zip
+```
+
+Download JDK and MySQL agent from the links and copy it to the oscommerce compute using scp command as step 4.
+
+![](./images/agent_2a.png "")
+
+![](./images/agent_2b.png "")
+
+- Java SE Development Kit 8u241 - jdk-8u241-linux-x64.tar.gz - https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html
+
+- JDBC driver for MySQL. MySQL Connector/J - mysql-connector-java-5.1.48.jar - https://dev.mysql.com/downloads/connector/j/5.1.html
+
+Create another directory for Java installation - /home/opc/java.
+
+Copy JDK in the /home/opc/java directory and MySQL agent in the directory - /home/oscommerce/oicagent/agenthome/thirdparty/lib folder. 
+
+Unzip and install JDK on oscommerce compute by navigating to the Java directory and running the command - 
+
+```
+tar zxvf jdk-8u241-linux-x64.tar.gz
+```
+
+Navigate to oicagent and Modify InstallerProfile.cfg file to include the following information:
+
+# Required Parameters
+# oic_URL format should be https://hostname:sslPort
+
+oic_URL= https://oic_host:ssl_port
+agent_GROUP_IDENTIFIER= Agent group identifier created on step 2
+oic_USER= non-federated user
+oic_PASSWORD= non-federated password
+
+![](./images/agent_3.png "")
+
+Now within the oicagent directory, run the following two commands to set the Java home directory.
+
+export PATH=/home/opc/java/jdk1.8.0_241/bin:$PATH
+export JAVA_HOME=/home/opc/java/jdk1.8.0_241/
+
+Run the following command to start the agent -
+
+```
+nohup java -jar connectivityagent.jar
+```
+
+![](./images/agent_4.png "")
+
+
 In the Oracle Integration Cloud home page, click on the Menu icon in the top left and click on Integration.
 
 ![](./images/1.png "")
