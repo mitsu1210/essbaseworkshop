@@ -61,15 +61,11 @@ Unzip oic_connectivity_agent.zip using the command
 unzip oic_connectivity_agent.zip
 ```
 
-Download JDK and MySQL agent from the links and copy it to the oscommerce compute using scp command as step 4.
+Download [JDK](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html) and [MySQL](https://dev.mysql.com/downloads/connector/j/5.1.html) agent from the links below and copy it to the oscommerce compute using scp command as step 4.
 
 ![](./images/Agent_2a.png "")
 
 ![](./images/Agent_2b.png "")
-
-- Java SE Development Kit 8u241 - jdk-8u241-linux-x64.tar.gz - https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html
-
-- JDBC driver for MySQL. MySQL Connector/J - mysql-connector-java-5.1.48.jar - https://dev.mysql.com/downloads/connector/j/5.1.html
 
 Create another directory for Java installation - /home/opc/java.
 
@@ -84,8 +80,11 @@ tar zxvf jdk-8u241-linux-x64.tar.gz
 Navigate to oicagent and Modify InstallerProfile.cfg file to include the following information:
 
 oic_URL= https://oic_host:ssl_port
+
 agent_GROUP_IDENTIFIER= Agent group identifier created on step 2
+
 oic_USER= non-federated user
+
 oic_PASSWORD= non-federated password
 
 ![](./images/Agent_3.png "")
@@ -93,6 +92,7 @@ oic_PASSWORD= non-federated password
 Now within the oicagent directory, run the following two commands to set the Java home directory.
 
 export PATH=/home/opc/java/jdk1.8.0_241/bin:$PATH
+
 export JAVA_HOME=/home/opc/java/jdk1.8.0_241/
 
 Run the following command to start the agent -
