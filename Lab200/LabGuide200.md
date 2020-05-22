@@ -211,15 +211,15 @@ Thus, we have the webserver files as well as the database files in a secondary s
 ## Part 2. Configure DNS failover
 At this point of time, our primary server and secondary server are in sync. Lets proceed and configure the failover from the Oracle Cloud console. There are multiple ways to setup a failover like using keepalived, using load balancers and using DNS Traffic Management Steering policies in OCI. For the purpose of this lab, we will use the DNS Traffic Management Steering Policy in Oracle Cloud Infrastructure.
 
-### Step 1: Login into both primary and secondary servers
+### Step 1: Make your application accessible from your ip address
 
-ssh into both compute instances
+ssh into your primary compute instance
 
 ```
 ssh oscommerce@<public ip-add>
 ```
 
-Edit Apache config file. This step would make the oscommerce application accessible directly on the public ip address.
+Edit Apache config file.
 
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
@@ -232,6 +232,14 @@ Add
 ```
 “DirectoryIndex index.php”
 ```
+
+sudo nano /var/www/html/catalog/includes/configure.php
+
+Replace localhost with your primary ip address remove /catalog from HTTP_COOKIE_PATH, HTTPS_COOKIE_PATH, DIR_WS_HTTP_CATALOG and DIR_WS_HTTPS_CATALOG
+
+Example
+
+![](./images/configure.png "")
 
 ![](./images/8.png "")
 
@@ -256,7 +264,7 @@ We recommend you to watch the below videos in order to get an idea about OCI DNS
 * [What is DNS?](https://www.youtube.com/watch?v=SnMumcIE1aw)
 * [DNS overview & Demo](https://www.youtube.com/watch?v=dfKeDh79HdQ)
 
-* Note: DNS will take 4-12 hours to propagate after you make changes
+* Note: DNS will take few mins to an hour to make changes
 
 Export the resource record. This file would be exported as a .txt file. Store in a secure location, we would need the file later in the lab
 
