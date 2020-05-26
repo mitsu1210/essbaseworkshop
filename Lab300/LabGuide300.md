@@ -1,4 +1,4 @@
-# Lab 300: Integrate Oracle Cloud Platform services with your app
+# Lab 300: Integrate Oracle Cloud Platform services with your app.
 
 ## Introduction
 This lab walks you through the steps to integrate your third party app with Oracle Cloud PaaS. First, we will connect MySQL database and then Oracle Autonomous Data warehouse to Oracle Integration Cloud. After both the connections has been established, we will migrate the data from MySQL database to Oracle Autonomous Datawarehouse(ADW). Lastly, we will connect Oracle Analytics Cloud service to Oracle Autonomous Data warehouse to perform some analytics.
@@ -6,14 +6,14 @@ This lab walks you through the steps to integrate your third party app with Orac
 ### Objectives
 * Establish connection from MySQL to Oracle Integration Cloud
 * Establish connection from Oracle Autonomous Database and Oracle Integration Cloud
-* Establish an integration between the ADW and MySQL connections
-* Create an OAC Instance
-* Access your new OAC Instance
-* Connect an ADW/ATP Instance to OAC
+* Establish an integration between the Autonomous Data Warehouse and MySQL connections
+* Create an Oracle Analytics Cloud Instance
+* Access your new Oracle Analytics Cloud Instance
+* Connect an Autonomous Data Warehouse/Autonomous Transaction Processing Instance to OAC
 
 
 ### Required Artifacts
-* The following lab requires an Oracle Public Cloud account. You may use your own cloud account, a cloud account that you obtained through a trial, or a training account whose details were given to you by an Oracle instructor.
+
 * Complete Lab 100 and 200
 * Access to Oracle Integration Cloud Service
 * Access to Oracle Autonomous Data Warehouse
@@ -29,11 +29,81 @@ Estimated time to complete this lab is two hours.
 
 ### Step 1: Establish connection from MySQL to Oracle Integration Cloud
 
-Before moving forward, if you have been provided a wallet file, a username, and password to an ADW or ATP, please save this information and continue to the next step. Otherwise, read the step below:
+Before moving forward, if you have been provided a wallet file, a username, and password to an ADW or ATP, please keep this information handy and continue to the next step. Otherwise, read the step below:
 
-If you have not been provided a username, password, and wallet file, please follow the lab guide (Part 1 and Part 2) here [link](https://github.com/oracle/learning-library/blob/master/workshops/erp-adw-oac/LabGuide100ProvisionAnADWDatabase.md). Once you complete making an ADW or ATP instance, please download the Wallet file from the console.
+If you do not have this information, please follow the lab guide (Part 1 and Part 2) here [link](https://github.com/oracle/learning-library/blob/master/workshops/erp-adw-oac/LabGuide100ProvisionAnADWDatabase.md). Once you complete making an ADW or ATP instance, please download the Wallet file from the console. [More info](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/connect-download-wallet.html#GUID-B06202D2-0597-41AA-9481-3B174F75D4B1)
 
-Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you. Follow instructions from [here](https://docs.cloud.oracle.com/en-us/iaas/integration/doc/creating-oracle-integration-instance.html) if you need to create one. 
+Here, we will establish a connection between our MySQL Database and Oracle Integration Cloud. An Oracle Integration Cloud instance will be provided to you. If you do not have an Oracle Integration Cloud instance, follow instructions from [here](https://docs.cloud.oracle.com/en-us/iaas/integration/doc/creating-oracle-integration-instance.html) and create one.
+
+For this lab, we will also need an OIC agent in order to perform connections to web app's database. Make one by following the instructions below:
+
+Login to your OIC instance. In the left navigation pane, click Integrations, then click Agents.
+
+Create a new agent by clicking the button - Create Agent Group. Give the agent name as "oscommerce". And click on Create button.
+
+![](./images/Agent_1.png "")
+
+Next, download the agent zip folder by clicking on Download > Connectivity Agent.
+
+![](./images/Agent_2.png "")
+
+SSH to the oscommerce primary instance. Create a directory in oscommerce compute for oic agent. For example - /home/oscommerce/oicagent
+
+Secure copy (scp/winscp) file from your local computer to the oscommerce instance by running the following command in a terminal window - 
+
+```
+scp -i /Users/mimehta/Desktop/sshkeybundle/privateKey /Users/mimehta/Desktop/oic_connectivity_agent opc@132.145.167.51:/home/opc/oicagent
+```
+
+Unzip oic_connectivity_agent.zip using the command 
+
+```
+unzip oic_connectivity_agent.zip
+```
+
+Download [JDK](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html) and [MySQL](https://dev.mysql.com/downloads/connector/j/5.1.html) agent from the links below and copy it to the oscommerce compute using scp command as step 4.
+
+![](./images/Agent_2a.png "")
+
+![](./images/Agent_2b.png "")
+
+Create another directory for Java installation - /home/opc/java.
+
+Copy JDK in the /home/opc/java directory and MySQL agent in the directory - /home/oscommerce/oicagent/agenthome/thirdparty/lib folder. 
+
+Unzip and install JDK on oscommerce compute by navigating to the Java directory and running the command - 
+
+```
+tar zxvf jdk-8u241-linux-x64.tar.gz
+```
+
+Navigate to oicagent and Modify InstallerProfile.cfg file to include the following information:
+
+oic_URL= https://oic_host:ssl_port
+
+agent_GROUP_IDENTIFIER= Agent group identifier created on step 2
+
+oic_USER= non-federated user
+
+oic_PASSWORD= non-federated password
+
+![](./images/Agent_3.png "")
+
+Now within the oicagent directory, run the following two commands to set the Java home directory.
+
+export PATH=/home/opc/java/jdk1.8.0_241/bin:$PATH
+
+export JAVA_HOME=/home/opc/java/jdk1.8.0_241/
+
+Run the following command to start the agent -
+
+```
+nohup java -jar connectivityagent.jar
+```
+
+![](./images/Agent_4.png "")
+
+
 In the Oracle Integration Cloud home page, click on the Menu icon in the top left and click on Integration.
 
 ![](./images/1.png "")

@@ -25,7 +25,7 @@ Estimated time to complete this lab is three hours.
 ## Part 1. Capturing a Snapshot of Third Party OS Commerce Application
 
 ### Step 1: Download VirtualBox and Import Ubuntu Instance
-If you do not have it on your local machine, make sure to download [VirtualBox](https://www.virtualbox.org/wiki/Downloads). VirtualBox is a free, open-source software that allows users to run multiple operating systems on a single machine and switch between OS Instances. Additionally, download the [osCommerceDemo.ova file](https://objectstorage.us-ashburn-1.oraclecloud.com/p/8TW2UCWbLhdiqxSsarx47PImymazugfuZ48kDnevYq8/n/orasenatdecanational01/b/OsCommerce_ova_file/o/osCommerceDemo.ova). Please reach out to your lab facilitator should you have any issues downloading the .ova file.
+If you do not have it on your local machine, make sure to download [VirtualBox](https://www.virtualbox.org/wiki/Downloads). VirtualBox is a free, open-source software that allows users to run multiple operating systems on a single machine and switch between OS Instances. Additionally, download the [osCommerceDemo.ova file](https://objectstorage.us-ashburn-1.oraclecloud.com/p/P2EwRTj2PxXxG52U8XrFCeLZsb_P9wha2RDef5bYz9E/n/orasenatdecanational01/b/OsCommerce_ova_file/o/osCommerceDemo.ova). Please reach out to your lab facilitator should you have any issues downloading the .ova file.
 
 ![](./images/1.png "")
 
@@ -249,14 +249,15 @@ Select the option “Create Virtual Cloud Network Plus Related Resources.” Thi
 
 **Security List Config**
 
-It's vitally important that we lock down this application as malicious third parties will exploit open ports if not configured correctly. In this instance the we need to set security list ingress and egress rules to control the types of traffic allowed in and out or the subnet- and OSCommerce instance. Specifically:
-*	Allow Port 22 for SSH and 443 for HTTPS
-*	Allow port 3306 for mysql
+It's vitally important that we lock down this application as malicious third parties will exploit open ports if not configured correctly. In this instance we need to set security list ingress and egress rules to control the types of traffic allowed in and out of the subnet and OSCommerce instance. Specifically:
+* Allow Port 22 for SSH and 443 for HTTPS
+* Allow port 3306 for 
+* Alow port 80 for http
 * Allow Port 5901 for VNC
 
 For production instances **never** open up all traffic via 0.0.0.0/0 on a given port. This will make your application extremely vulnerable to third party attackers. In this lab we will do this for the sake of easy configuration but it is highly recommended that after the lab you lock these ports down.
 
-![](./images/25.png "")
+![](./images/Ingress.png "")
 ![](./images/26.png "")
 
 ### Step 2: Create Object Storage Bucket

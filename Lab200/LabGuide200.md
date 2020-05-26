@@ -1,7 +1,7 @@
 # Lab 200: High Availability for the OsCommerce instance 
 
 ## Introduction
-Below, we have a demo of how you can setup disaster recovery for your app easily in cloud leveraging different availability domains (or across regions). One of the key principles of designing high availability solutions is to avoid single point of failure.
+Below, we have a demo of how you can setup disaster recovery for your app in Oracle Cloud leveraging different availability domains (or across regions). One of the key principles of designing high availability solutions is to avoid single point of failure.
  We will deploy Compute instances that perform the same tasks in multiple availability domains. You can use the custom image you used for primary compute instance to deploy secondary compute instance in a different Availability domain. This design removes a single point of failure by introducing redundancy. The following diagram illustrates how we can achieve high availability.
 
 ![](./images/1.png "")
@@ -9,14 +9,14 @@ Below, we have a demo of how you can setup disaster recovery for your app easily
 ### Objectives
 
 * Learn how to leverage Oracle Cloud infrastructure to create a high available and disaster recovery solution for your applications.
-* Learn how to replicate data across multiple compute instances using Rsync, mysqldump utility.
+* Learn how to replicate your primary server to secondary server using Rsync, mysqldump utility.
 * Learn how to provision and configure DNS Failover with Traffic Management Steering policy
 
 
 ### Required Artifacts
 * 2 OsCommerce compute servers (You already have primary oscommerce compute instance. Spin up a secondary compute instance from your oscommerce custom image into a different Availability domain than the AD where your primary compute reside)
 * Make sure you have setup ssh access from local to both the servers and from primary server to secondary server and vice-versa (More information in the lab below)
-* 1 Domain name (To demonstrate failover)
+* A Domain name (To demonstrate failover)
 
 Estimated time to complete this lab is three hours.
 
@@ -28,20 +28,30 @@ Estimated time to complete this lab is three hours.
 
 ## Part 1. Transfer and synchronize webserver files and database files between primary instance and secondary instance.
 
-### Step 1: Download and installing rsync
-Download rsync command on both the compute instances as follows:
+### Step 1: Installing rsync utility on primary and secondary compute instances
+
+Run the following command on primary compute instance.
 
 ``` 
 sudo apt-get install rsync
 ```
+Repeat the same for secondary compute instance.
 
-### Step 2: Scp ssh key to primary compute OR Generate ssh key pair
+### Step 2: Secure copy your private ssh key to primary compute OR Generate new ssh key pair
 
-As written in the pre-reqs make sure you have setup ssh access from primary server to secondary server and vice-versa. If you want to use the same ssh keys as the one you are using to ssh into oscommerce compute, you can scp the private key file from local to primary oscommerce instance by using the following:
+As written in the pre-reqs, we will require to setup ssh access from primary server to secondary server and vice-versa. If you want to use the same ssh keys as the one you are using to ssh into oscommerce compute, you can scp the private key file from local to primary oscommerce instance by using the following:
+
+Run the following command in your local terminal
+
+```
+scp id_rsa oscommerce@your-ip-address:/home/oscommerce/.ssh/
+```
+
+Note: scp command is included in mac/linux, so need to download anything. Howevever, if you are using Windows, install PuTTy which includes PSCP or you can also use [WinSCP](https://winscp.net/eng/index.php)
 
 ![](./images/2.png "")
 
-Alternatively, we can use: Method 2 - Create new keys
+If you want to use new ssh keys, use Method 2 - Create new keys
 
 On each server run:
 
@@ -67,7 +77,7 @@ ssh into Server B, and append the contents of that to the it's authorized_keys f
 cat >> ~/.ssh/authorized_keys
 ```
 
-Paste your clipboard contents. Rsync is configured to use ssh by default**
+Paste your clipboard contents. 
 
 ### Step 3: Replicate web server files and database files
 
@@ -99,17 +109,16 @@ Please note: For the purpose of this lab, we are using chmod 777, however settin
 Now, we will perform the rsync command from primary server to secondary server to replicate the files. Run the following command on server 1 (primary). The ip address below is for the secondary server.
 
 ```
-rsync -r /var/www/html/ oscommerce@129.146.108.71:/var/www/html/
+rsync -r /var/www/html/ oscommerce@secondary-sercer-ip:/var/www/html/
 ```
 
 If you go to secondary server, you can see the following files in the /var/www/html directory
 
 ![](./images/4.png "")
 
-We have successfully replicated the web server files. Similaryly, we can replicate the mysql files as well. We can do this in many ways:
+We have successfully replicated the web server files. Similarly, we can replicate the mysql files as well. We can do this in many ways:
 * Using rsync as above
-*	Using mysql dump utility
-*	Using Golden Gate image in OCI [Learn more](https://blogs.oracle.com/dataintegration/done-cancel-v12)
+* Using mysql dump utility
 
 
 ### Step 4: Replicate mysql database files
@@ -169,7 +178,7 @@ Delete the oscommerce database and create an empty oscommerce database as follow
 
 Now run the following command to replicate the database
 
-Note: Run this command in  VM terminal and not in mysql terminal. 
+Note: Run this command in  secondary server terminal (not in mysql terminal) 
 
 ```
  mysqldump --host=1.2.3.4 --user=MYDBUSER -pMYDBPASSWORD --add-drop-table --no-create-db --skip-lock-tables MYDBNAME | mysql --user=MYDBUSER -pMYDBPASSWORD MYDBNAME
@@ -180,6 +189,8 @@ In my case, the command looked like this:
 ```
 mysqldump --host=150.136.116.169 -P 3306 --user=root -poscommerce --add-drop-table --no-create-db --skip-lock-tables oscommerce | mysql --user=root -poscommerce oscommerce
 ```
+
+Note: Here, the host ip address should be the ip address of the primary server since we are replicating from primary to secondary server.
 
 ![](./images/6.png "")
 
@@ -200,15 +211,15 @@ Thus, we have the webserver files as well as the database files in a secondary s
 ## Part 2. Configure DNS failover
 At this point of time, our primary server and secondary server are in sync. Lets proceed and configure the failover from the Oracle Cloud console. There are multiple ways to setup a failover like using keepalived, using load balancers and using DNS Traffic Management Steering policies in OCI. For the purpose of this lab, we will use the DNS Traffic Management Steering Policy in Oracle Cloud Infrastructure.
 
-### Step 1:Login into both primary and secondary servers
+### Step 1: Make your application accessible from your ip address
 
-ssh into both compute instances
+ssh into your primary compute instance
 
 ```
 ssh oscommerce@<public ip-add>
 ```
 
-Edit Apache config file. This step would make the oscommerce application accessible directly on the public ip address.
+Edit Apache config file.
 
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
@@ -222,6 +233,14 @@ Add
 “DirectoryIndex index.php”
 ```
 
+sudo nano /var/www/html/catalog/includes/configure.php
+
+Replace localhost with your primary ip address remove /catalog from HTTP_COOKIE_PATH, HTTPS_COOKIE_PATH, DIR_WS_HTTP_CATALOG and DIR_WS_HTTPS_CATALOG
+
+Example
+
+![](./images/configure.png "")
+
 ![](./images/8.png "")
 
 Restart the server using the command
@@ -230,20 +249,22 @@ Restart the server using the command
 sudo service apache2 restart
 ```
 
+Now, if you hit your public ip address in the browser, you should be able to see your app running. 
+
 ### If you already have your DNS Zone within Oracle Cloud Infrastructure, Skip step 2 and step 3
 
 ### Step 2: Export DNS zone file
 
 **Prequisite**
 
-* For this section of a lab, you will need domain name. There are many domain name registrars like GoDaddy, NameCheap or Google, where you will be able to purchase domain names for about 2-3$. We are using Google as the domain name registrar for this lab. Any domain name should work for this exercise, hence, you can pick one of the cheaper domain names. 
+* For this section of a lab, you will need a domain name. There are many domain name registrars like GoDaddy, NameCheap or Google, where you will be able to purchase domain names for about $2-3. We are using Google as the domain name registrar for this lab. Any domain name should work for this exercise.
 
-* Refer the following Youtube links for steps to create DNS failover -
+We recommend you to watch the below videos in order to get an idea about OCI DNS and how failover works.
 
 * [What is DNS?](https://www.youtube.com/watch?v=SnMumcIE1aw)
 * [DNS overview & Demo](https://www.youtube.com/watch?v=dfKeDh79HdQ)
 
-* Note: DNS will take 4-12 hours to propagate after you make changes**
+* Note: DNS will take few mins to an hour to make changes
 
 Export the resource record. This file would be exported as a .txt file. Store in a secure location, we would need the file later in the lab
 
@@ -284,7 +305,7 @@ I’m using google-domain in this case. Add name servers to your domain name ser
 
 ### Step 4: Add an "A" record to DNS zone
 
-There are many record types you can add to your zone, depending on your goals for the zone and its DNS management. For this Lab, we would add an “A” record. For more information about record types go to Supported Resource Records (https://docs.cloud.oracle.com/en-us/iaas/Content/DNS/Tasks/managingdnszones.htm)
+There are many record types you can add to your zone, depending on your goals for the zone and its DNS management. For this Lab, we would add an “A” record. For more information about record types refer [Supported Resource Records](https://docs.cloud.oracle.com/en-us/iaas/Content/DNS/Tasks/managingdnszones.htm)
 
 Navigate back to Oracle cloud console, open the navigation menu. Under Core Infrastructure, go to Networking and click DNS Zone Management.
 
@@ -350,7 +371,7 @@ In the Create Health Check dialog box, enter the following:
 
 ![](./images/23.png "")
 
-Attached the sub-domain name you create earlier to the policy
+Attach the sub-domain name you create earlier to the policy
 
 ![](./images/24.png "")
 
@@ -362,7 +383,7 @@ With a  web browser, access the oscommerce application using the sub-domain name
 
 Example: "public1.oscommercesite.com"
 
-Test the failover mechanism by stopping apache2 service on the mater node
+Test the failover mechanism by stopping apache2 service on the master node (primary server)
 
 Login into the master node and stop apache service
 
@@ -375,3 +396,7 @@ sudo /etc/init.d/apache2 stop
 Check the failover policy overview, the master node’s heath-check status should have changed from “healthy” to “unhealthy “
 
 ![](./images/25.png "")
+
+However, if you go to your domain name - public1.oscommercesite.com, your website should still be running (after 30 seconds) since we configured a failover.
+
+Thus we can set up disaster recovery for your app in OCI easily and avoid single point of failure.
