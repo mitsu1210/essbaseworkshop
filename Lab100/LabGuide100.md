@@ -243,7 +243,7 @@ Select the option “Create Virtual Cloud Network.”
 
 ![](./images/23.png "")
 
-Select the option “Create Virtual Cloud Network Plus Related Resources.” This will generate the required resources for a publicly accessible subnet including default route tables, internet gateways, and security lists. All pre-generated resources will be displayed, e.g. “Create Internet Gateway.” Be choosing the related resources option we minimize additional config.
+Select the option “Create Virtual Cloud Network Plus Related Resources.” This will generate the required resources for a publicly accessible subnet including default route tables, internet gateways, and security lists. All pre-generated resources will be displayed, e.g. “Create Internet Gateway.” Be choosing the related resources option we minimize additional config. If this option is not available you will need to create an internet gateway and a route table that sends all traffic to the IGW.
 
 ![](./images/24.png "")
 
