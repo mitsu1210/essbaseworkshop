@@ -23,7 +23,7 @@ Estimated time to complete this lab is three hours.
 * Oracle VirtualBox [link](https://www.oracle.com/virtualization/virtualbox/)
 
 ## Administratrive Note
-Part 1 of the Lab100 is optional. This section outlines how to configure an On-Premises e-Commerce application and capture a snapshot of it in the form of a .ova file which is converted to a cloud-compatible VMDK. Should you wish to skip this part of the lab and proceed directly to Part 2, download the VMDK file contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/JPnFpTHgLX9vNwc6KtkXIkXAFFM65sOHfzooM8AJfDk/n/orasenatdecanational01/b/osCommerceTest/o/osCommerceDemo-disk001.vmdk). The VMDK is a large file (~2GB) and may take a significant time to download depending on your network speed.
+Part 1 of Lab100 is optional. This section outlines how to configure an On-Premises e-Commerce application and capture a snapshot of it in the form of a .ova file which is converted to a cloud-compatible VMDK. Should you wish to skip this part of the lab and proceed directly to Part 2, download the VMDK file contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/JPnFpTHgLX9vNwc6KtkXIkXAFFM65sOHfzooM8AJfDk/n/orasenatdecanational01/b/osCommerceTest/o/osCommerceDemo-disk001.vmdk). The VMDK is a large file (~2GB) and may take a significant time to download depending on your network speed.
 
 ## Part 1. Capturing a Snapshot of Third Party OS Commerce Application
 
