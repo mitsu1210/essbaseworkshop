@@ -22,7 +22,11 @@ Estimated time to complete this lab is three hours.
 * To learn about Object Storage in the cloud please see the following [link](https://docs.cloud.oracle.com/en-us/iaas/Content/Object/Concepts/objectstorageoverview.htm)
 * Oracle VirtualBox [link](https://www.oracle.com/virtualization/virtualbox/)
 
+## Administratrive Note
+Part 1 of the lab series is optional. This section outlines how to configure an On-Premises e-Commerce application and capture a snapshot of it in the form of a .ova file which is converted to a cloud-compatible VMDK. Should you wish to skip this part of the lab and proceed directly to Part 2, download the VMDK file contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/JPnFpTHgLX9vNwc6KtkXIkXAFFM65sOHfzooM8AJfDk/n/orasenatdecanational01/b/osCommerceTest/o/osCommerceDemo-disk001.vmdk). The VMDK is a large file (~2GB) and may take a significant time to download depending on your network speed.
+
 ## Part 1. Capturing a Snapshot of Third Party OS Commerce Application
+
 
 ### Step 1: Download VirtualBox and Import Ubuntu Instance
 If you do not have it on your local machine, make sure to download [VirtualBox](https://www.virtualbox.org/wiki/Downloads). VirtualBox is a free, open-source software that allows users to run multiple operating systems on a single machine and switch between OS Instances. Additionally, download the [osCommerceDemo.ova file](https://objectstorage.us-ashburn-1.oraclecloud.com/p/P2EwRTj2PxXxG52U8XrFCeLZsb_P9wha2RDef5bYz9E/n/orasenatdecanational01/b/OsCommerce_ova_file/o/osCommerceDemo.ova). Please reach out to your lab facilitator should you have any issues downloading the .ova file.
@@ -251,7 +255,7 @@ Select the option “Create Virtual Cloud Network Plus Related Resources.” Thi
 
 It's vitally important that we lock down this application as malicious third parties will exploit open ports if not configured correctly. In this instance we need to set security list ingress and egress rules to control the types of traffic allowed in and out of the subnet and OSCommerce instance. Specifically:
 * Allow Port 22 for SSH and 443 for HTTPS
-* Allow port 3306 for 
+* Allow port 3306 for
 * Alow port 80 for http
 * Allow Port 5901 for VNC
 
