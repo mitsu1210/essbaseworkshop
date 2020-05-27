@@ -468,7 +468,14 @@ First, we need to create an SSH connection on your local computer that securely 
 ssh -L 5901:127.0.0.1:5901 -N -f -l <username> <public_ip_address>
 ```
 
-If you are using a graphical SSH client, like PuTTY, use <public_ip_address> as the connection IP, and set localhost:5901 as a new forwarded port in the program's SSH tunnel settings. Next, we’ll use VNC Viewer to create a new VNC Server. Create a new connection and set the VNC server to localhost:5901 and set the name to “osCommerce Demo.” Make sure you don't forget that :5901 at the end, as that is the only port that the VNC instance is accessible from. When prompted for a password, use the password that you set earlier. You should see the default desktop!
+If you are using a graphical SSH client, like PuTTY, use <public_ip_address> as the connection IP, and set localhost:5901 as a new forwarded port in the program's SSH tunnel settings. Example screenshots of what this configuration look like can be found below.
+![](./images/49.png "")
+![](./images/50.png "")
+![](./images/51.png "")
+![](./images/52.png "")
+
+
+ Next, we’ll use VNC Viewer to create a new VNC Server. Create a new connection and set the VNC server to localhost:5901 and set the name to “osCommerce Demo.” Make sure you don't forget that :5901 at the end, as that is the only port that the VNC instance is accessible from. When prompted for a password, use the password that you set earlier. You should see the default desktop!
 
 *Important*: On your server it will tell you which port is in use (e.g. New ‘X’ desktop is
 oscommerce-VirtualBox:1) In this case it will be port 1 = 5901. If it was :2 then it will be 5902.
