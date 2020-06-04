@@ -17,7 +17,7 @@ This lab will walk you through the process on how to install an agent onto an ex
 Estimated time to complete this lab is 75 minutes
 
 ### Additional Resources
-* Add OMC Documentation here
+* [OMC Documentation](https://docs.oracle.com/en/cloud/paas/management-cloud/index.html)
 
 ## Part 1. Downloading the Agent from Oracle Management Cloud
 
