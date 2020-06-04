@@ -87,7 +87,9 @@ You then will need to enter your password. By default this is oscommerce.
 Type the command ```ls``` to confirm the cloudagent_linux zip file is still there.
 
 Unzip the file by typing:
-```unzip cloudagent_linux.64x.48.2.zip```
+```
+unzip cloudagent_linux.64x.48.2.zip
+```
 
 **Note: Your file name may appear slightly different. For a shortcut, type in ‘unzip cloudagent’ then press tab to auto complete to the correct file name.**
 
@@ -100,10 +102,14 @@ Use your favorite text editor to open the file. In this case, I’m using the co
 Fill in the tenant name with the details your wrote down in Part 1 Step 2.
 
 For the registration key use:
-```RKsjm7eGyt9igutkdn-RcULYZR```
+```
+RKsjm7eGyt9igutkdn-RcULYZR
+```
 
 For agent base directory type:
-```/home/oscommerce/omcagent/agent_inst/bin```
+```
+/home/oscommerce/omcagent/agent_inst/bin
+```
 
 And finally, populate the OMC_URL with the url saved in Part 1 Step 2.
 
@@ -112,14 +118,21 @@ And finally, populate the OMC_URL with the url saved in Part 1 Step 2.
 Save any changes and exit out. In our case, we type Control + X to exit, type Y to save, then enter.
 
 Next, we’ll execute one of the scripts, by typing:
-```./AgentInstall.sh```
+```
+./AgentInstall.sh
+```
 
 ![](./images/9.png "")
 
 To check if this complete properly, change to the bin directory by typing:
-```cd omcagent/agent_inst/bin/```
+```
+cd omcagent/agent_inst/bin/
+```
 
-From here, you can check the status of your agent by typing: ```./omcli status agent```
+From here, you can check the status of your agent by typing:
+```
+./omcli status agent
+```
 
 ![](./images/10.png "")
 
@@ -147,14 +160,20 @@ When prompted for a password, type in the root password from the initial setup i
 Once here, we need to create a user for OMC to use, and give it the appropriate permissions.
 
 To create the user, type the command:
-```CREATE USER 'moncs’@'l oscommerce-VirtualBox' IDENTIFIED BY '<yourpasswordhere>';```
+```
+CREATE USER 'moncs’@'l oscommerce-VirtualBox' IDENTIFIED BY '<yourpasswordhere>';
+```
 
 Replace '&lt;yourpasswordhere&gt;' with a password you can remember. You will need this later.
 
 Next, you must give the moncs user appropriate permissions. To do this, type the commands:
-```GRANT SELECT, SHOW DATABASES ON *.* TO 'moncs'@'oscommerce-virtualbox ' IDENTIFIED BY '<yourpasswordhere>'; ```
+```
+GRANT SELECT, SHOW DATABASES ON *.* TO 'moncs'@'oscommerce-virtualbox ' IDENTIFIED BY '<yourpasswordhere>';
+```
 
-```GRANT SELECT, SHOW DATABASES ON *.* TO ' moncs '@'%' IDENTIFIED BY '<yourpasswordhere>';```
+```
+GRANT SELECT, SHOW DATABASES ON *.* TO ' moncs '@'%' IDENTIFIED BY '<yourpasswordhere>';
+```
 
 Once again, you will need to replace '&lt;yourpasswordhere&gt;' with the password from the create user step.
 
