@@ -72,7 +72,9 @@ Once connected, you should see the home directory for oscommerce. Simply drag yo
 Open your terminal and type ```cd .ssh``` to change to your ssh directory.
 
 Once here connect to your oscommerce instance by typing the following command:
-```ssh oscommerce@<YourPublicIPHere>```
+```
+ssh oscommerce@<YourPublicIPHere>
+```
 
 **Replace ‘&lt;YourPublicIPHere&gt;’ with the public IP on your instance**
 
