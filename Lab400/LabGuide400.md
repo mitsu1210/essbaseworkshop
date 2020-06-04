@@ -186,10 +186,14 @@ Next, we need to update the config file for MySQL to allow for outside connectio
 First, we need to change to the root directory.
 
 Type the command:
-```cd ../```
+```
+cd ../
+```
 
 then again type:
-```cd ../```
+```
+cd ../
+```
 
 And finally, to make sure you're in the right folder, type:
 ```ls```
