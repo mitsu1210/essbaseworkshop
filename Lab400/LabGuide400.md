@@ -74,7 +74,7 @@ Open your terminal and type ```cd .ssh``` to change to your ssh directory.
 Once here connect to your oscommerce instance by typing the following command:
 ```ssh oscommerce@<YourPublicIPHere>```
 
-**Replace ‘<YourPublicIPHere>’ with the public IP on your instance** 
+**Replace ‘&ltYourPublicIPHere&gt’ with the public IP on your instance** 
 
 If told the authenticity of the host can’t be established, type yes to continue.
 
@@ -147,14 +147,14 @@ Once here, we need to create a user for OMC to use, and give it the appropriate 
 To create the user, type the command:
 ```CREATE USER 'moncs’@'l oscommerce-VirtualBox' IDENTIFIED BY '<yourpasswordhere>';```
 
-Replace '<yourpasswordhere>' with a password you can remember. You will need this later.
+Replace '&ltyourpasswordhere&gt' with a password you can remember. You will need this later.
 
 Next, you must give the moncs user appropriate permissions. To do this, type the commands:
 ```GRANT SELECT, SHOW DATABASES ON *.* TO 'moncs'@'oscommerce-virtualbox ' IDENTIFIED BY '<yourpasswordhere>'; ```
 
 ```GRANT SELECT, SHOW DATABASES ON *.* TO ' moncs '@'%' IDENTIFIED BY '<yourpasswordhere>';```
 
-Once again, you will need to replace '<yourpasswordhere>' with the password from the create user step.
+Once again, you will need to replace '&ltyourpasswordhere&gt' with the password from the create user step.
 
 ![](./images/13.png "") 
 
