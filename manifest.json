@@ -6,24 +6,29 @@
             "filename": "./README.md"
         },
         {
-            "title": "Lab 100: Lifting A Third Party Application to the Cloud",
+            "title": "Lab 100: Essbase on OCI - Deployment",
             "publisheddate": "04/13/2020",
             "filename": "./Lab100/LabGuide100.md"
         },
         {
-            "title": "Lab 200: High Availability for the OsCommerce instance",
+            "title": "Lab 200: ADW with Essbase - Building a cube using data from ADW",
             "publisheddate": "04/13/2020",
             "filename": "./Lab200/LabGuide200.md"
         },
         {
-            "title": "Lab 300: Integrate Oracle Cloud Platform services with your app",
+            "title": "Lab 300: Essbase Feature Functionalities",
             "publisheddate": "04/13/2020",
             "filename": "./Lab300/LabGuide300.md"
         },
         {
-            "title": "Lab 400: Monitoring your Application with Oracle Management Cloud",
+            "title": "Lab 400: Using Scenario Management",
             "publisheddate": "04/13/2020",
             "filename": "./Lab400/LabGuide400.md"
+        },
+        {
+            "title": "Lab 500: Data Visualization",
+            "publisheddate": "04/13/2020",
+            "filename": "./Lab500/LabGuide500.md"
         }
      ]
 }
