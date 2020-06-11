@@ -12,15 +12,15 @@ Estimated time to complete this lab is two hours.
 
 ### Additional Resources
 
-## Part 1. Establish connections in Oracle Integration Cloud
+## Part 1. 
 
-### Step 1: Establish connection from MySQL to Oracle Integration Cloud
+### Step 1: 
 
-### Step 2: Establish an integration between the ADW and MySQL connections
+### Step 2: 
 
 1. Some text here
 
-![](./images/5a.png "")
+![](./images/1a.png "")
 
 
 ```
