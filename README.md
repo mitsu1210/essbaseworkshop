@@ -1,7 +1,28 @@
-# Essbase Workshop - Beginner's Guide
+# Introduction to Essbase
 
 ## Introduction
-Oracle Essbase is a business analytics solution that uses a proven, flexible, best-in-class architecture for analysis, reporting, and collaboration. Essbase delivers instant value and greater productivity for your business users, analysts, modelers, and decision-makers, across all lines of business within your organization. ud (OAC), and Oracle Integration Cloud (OIC) in order to show how you can gain even more insight into your application data.
+Oracle Essbase is a business analytics solution that uses a proven, flexible, best-in-class architecture for analysis, reporting, and collaboration. Essbase delivers instant value and greater productivity for your business users, analysts, modelers, and decision-makers, across all lines of business within your organization.
+
+Oracle Essbase on cloud helps you to build your company’s cloud strategy efficiently by avoiding data and business process fragmentation. Oracle Essbase can be easily deployed on Oracle Cloud Infrastructure, which can then be widely used to solve simple to complex business analytics use cases across all industries. It is designed to help you model business performance levels and deliver what-if analyses for varying conditions. Using Oracle Identity Cloud Service, Essbase can utilize enterprise-wide user profiles to work and integrate with Oracle Cloud.
+
+# Features of Oracle Essbase
+
+•	Oracle Essbase provides a complete set of tools and features for deriving and sharing data insights.
+
+•	Both large organizations and small teams can share data more simply, without the need to manage or consolidate multiple versions of spreadsheets, and quickly perform ad hoc analysis of the spreadsheet data.
+
+•	Application developers can utilize interfaces that enable them to extend, customize, and embed rich analytic experiences in the application flow.
+
+•	With Oracle Essbase, you can take data from any source, and explore and collaborate with real-time data, using a               multidimensional engine.
+
+•	With Essbase on cloud you can create and manage Essbase applications from Microsoft Excel by using Cube Designer.
+
+•	Create connections and data sources for drill-through, data loads, and dimension builds.
+
+•	We can use Essbase to collect collaborative data, create scenarios, and perform what-if analysis using Smart View.
+
+
+During this Essbase workshop, we will walk you through Basic Essbase concepts, Administration of Essbase on cloud, integrating ADW with Essbase, salient features of Essbase on cloud , User and Scenario management in Essbase on cloud.
 
 Attached below is a sample architecture of the solution:
 ![](Architecture.png)
