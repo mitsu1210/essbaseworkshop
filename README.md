@@ -22,7 +22,7 @@ Oracle Essbase on cloud helps you to build your company’s cloud strategy effic
 
 • We can use Essbase to collect collaborative data, create scenarios, and perform what-if analysis using Smart View.
 
-## Essbase on OCI – Essbase 19c 
+## Essbase 19c VM Architecture 
 
 The following architecture diagram shows Essbase 19c deployed on Oracle infrastructure cloud (OCI) with integration to different cloud services - Autonomous Database, Load Balancer, Storage, Virtual Cloud Network (VCN) as part of the deployment.
 
