@@ -8,19 +8,19 @@ Oracle Essbase on cloud helps you to build your company’s cloud strategy effic
 
 ## Features of Oracle Essbase
 
-•	Oracle Essbase provides a complete set of tools and features for deriving and sharing data insights.
+• Oracle Essbase provides a complete set of tools and features for deriving and sharing data insights.
 
-•	Both large organizations and small teams can share data more simply, without the need to manage or consolidate multiple versions of spreadsheets, and quickly perform ad hoc analysis of the spreadsheet data.
+• Both large organizations and small teams can share data more simply, without the need to manage or consolidate multiple versions of spreadsheets, and quickly perform ad hoc analysis of the spreadsheet data.
 
-•	Application developers can utilize interfaces that enable them to extend, customize, and embed rich analytic experiences in the application flow.
+• Application developers can utilize interfaces that enable them to extend, customize, and embed rich analytic experiences in the application flow.
 
-•	With Oracle Essbase, you can take data from any source, and explore and collaborate with real-time data, using a               multidimensional engine.
+• With Oracle Essbase, you can take data from any source, and explore and collaborate with real-time data, using a               multidimensional engine.
 
-•	With Essbase on cloud you can create and manage Essbase applications from Microsoft Excel by using Cube Designer.
+• With Essbase on cloud you can create and manage Essbase applications from Microsoft Excel by using Cube Designer.
 
-•	Create connections and data sources for drill-through, data loads, and dimension builds.
+• Create connections and data sources for drill-through, data loads, and dimension builds.
 
-•	We can use Essbase to collect collaborative data, create scenarios, and perform what-if analysis using Smart View.
+• We can use Essbase to collect collaborative data, create scenarios, and perform what-if analysis using Smart View.
 
 ## Essbase on OCI – Essbase 19c 
 
@@ -57,29 +57,29 @@ Financial analysis develop number of reports as follows:
 2. Finance department
 			
 * Current year actual and budget data
-*	Monthly product development reports 
-*	Details of company cost structures
+* Monthly product development reports 
+* Details of company cost structures
 
-Dynamic corp extensively use Microsoft Excel application for Financial reporting. Financial analyst at Dynamic Corp are well versed with use of Excel. But with growing business they find it difficult to manage reporting with excel. They found out Excel is a widely used tool for two dimensional data analysis, but presents enlisted limitations when used for multidimensional data analysis
+Dynamic corp extensively use Microsoft Excel application for Financial reporting. Financial analyst at Dynamic Corp are well versed with use of Excel. But with growing business they find it difficult to manage reporting with excel. They found out Excel is a widely used tool for two dimensional data analysis, but presents enlisted limitations when used for multidimensional data analysis -
 
-	Disconnected
-	Data Security Risks
-	Error Prone
-	Scalability issues
-	Lack of audit trails/log mechanism
-	Tedious and multi-step calculations
+1. Disconnected
+2. Data Security Risks
+3. Error Prone
+4. Scalability issues
+5. Lack of audit trails/log mechanism
+6. Tedious and multi-step calculations
 
 To overcome these limitations and to proceed with an efficient and precise multi-dimensional data analysis, Essbase comes to the rescue. Essbase can be defined as a multidimensional database (comparable to Excel pivot table) offering following benefits -
 
-•	One single location for data – all analysts are using the same data, business drivers, and metrics for calculating departmental budgets.
+• One single location for data – all analysts are using the same data, business drivers, and metrics for calculating departmental budgets.
 
-•	Standardization of Business Drivers – budget drivers can be loaded and calculated by the administrator so that all budgets are using the same methodology.
+• Standardization of Business Drivers – budget drivers can be loaded and calculated by the administrator so that all budgets are using the same methodology.
 
-•	Security – the administrator can apply security to certain dimensions and members, giving users access to only the data that they are responsible for. This allows more participation from the field in the budget process.
+• Security – the administrator can apply security to certain dimensions and members, giving users access to only the data that they are responsible for. This allows more participation from the field in the budget process.
 
-•	Workflow - the administrator can completely control the workflow and approval process. Planning Units must be reviewed and approved before going up to the next approval level.
+• Workflow - the administrator can completely control the workflow and approval process. Planning Units must be reviewed and approved before going up to the next approval level.
 
-•	Easy to consolidate – Hyperion Planning data is stored in a Hyperion Essbase OLAP database using hierarchies that make the consolidation process effortless.
+• Easy to consolidate – Hyperion Planning data is stored in a Hyperion Essbase OLAP database using hierarchies that make the consolidation process effortless.
 
 With the above stated benefits, it’s certainly worthwhile to understand the nitty-gritty of Essbase, its benefits, features and applications. This lab intends towards providing a holistic view of Essbase, its features, and applications.
 
@@ -88,11 +88,9 @@ With the above stated benefits, it’s certainly worthwhile to understand the ni
 
 This lab will require the following -
 
-•	An Oracle public cloud tenancy where you have the resources available to provision an ADW instance with 2 OCPUs, an Essbase   instance with 2 OCPUs
-
-•	Smartview Plugin
-
-•	Cube Designer Plugin
+1. An Oracle public cloud tenancy where you have the resources available to provision an ADW instance with 2 OCPUs, an Essbase   instance with 2 OCPUs
+2. Smartview Plugin
+3. Cube Designer Plugin
 
 
 ## Register for Free Oracle Trial Account
