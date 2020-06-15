@@ -48,13 +48,13 @@ During our workshop we will help fictitious company Dynamic Corporation to perfo
 
 Financial analysis develop number of reports as follows:
 
-1. Sales department
+*1. Sales department*
 
 * Monthly sales revenues by product , by customer
 * Current year actual, budget , forecast data
 * Customer sales by region
 
-2. Finance department
+*2. Finance department*
 			
 * Current year actual and budget data
 * Monthly product development reports 
