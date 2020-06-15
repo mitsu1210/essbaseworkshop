@@ -90,9 +90,9 @@ This lab will require the following -
 
 1. An Oracle public cloud tenancy where you have the resources available to provision an ADW instance with 2 OCPUs, an Essbase   instance with 2 OCPUs
 
-2. Smartview Plugin
+2. Smartview Plugin [(Refer this link for installation.)](https://docs.oracle.com/en/cloud/paas/analytics-cloud/essug/download-and-run-smart-view-installer.html) 
 
-3. Cube Designer Plugin
+3. Cube Designer Plugin [(Refer this link for installation.)](https://docs.oracle.com/en/cloud/paas/analytics-cloud/essug/install-smart-view-cube-designer-extension.html)
 
 
 ## Register for Free Oracle Trial Account
