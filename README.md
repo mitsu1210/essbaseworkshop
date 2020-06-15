@@ -24,9 +24,8 @@ Oracle Essbase on cloud helps you to build your company’s cloud strategy effic
 
 ## Essbase on OCI – Essbase 19c 
 
-The following diagram shows Essbase 19c deployed on Oracle infrastructure cloud (OCI) with integration to different cloud services - Autonomous Database, Load Balancer, Storage, Virtual Cloud Network (VCN) as part of the deployment.
+The following architecture diagram shows Essbase 19c deployed on Oracle infrastructure cloud (OCI) with integration to different cloud services - Autonomous Database, Load Balancer, Storage, Virtual Cloud Network (VCN) as part of the deployment.
 
-Attached below is a generic sample architecture:
 ![](Architecture.png)
 
 * Essbase19c VM resides in the Application subnet as shown in the above figure which is configured automatically with Block Volumes – Configuration Volume & Data Volume. 
@@ -39,25 +38,70 @@ Attached below is a generic sample architecture:
 
 * Essbase backups gets stored in the Object storage of the OCI & the connectivity to this is established by the service gateway.
 
-
 *Note:* This lab is intended to be a comprehensive full cloud showcase. As such, it is assumed a user going through this workshop will be provisioning resources and creating users from scratch. If you decide to use existing infrastructure or resources, be aware and keep note of your namings so resources don't overlap and conflict.
 
 *Note:* Additionally, as much as possible, do not stray away from the naming conventions used for resources in this worshop. You may run into errors if you do.
 
 ## Working with Essbase
 
+During our workshop we will help fictitious company Dynamic Corporation to perform financial analysis. Dynamic Corp. is a high-tech manufacturer of hard disk drives. It is headquartered in California, Bay Area. Dynamic Corp. has its operations spread across multiple regions. Various departments within Dynamic Corp. performs financial analysis.
+
+Financial analysis develop number of reports as follows:
+
+1. Sales department
+
+* Monthly sales revenues by product , by customer
+* Current year actual, budget , forecast data
+* Customer sales by region
+
+2. Finance department
+			
+* Current year actual and budget data
+*	Monthly product development reports 
+*	Details of company cost structures
+
+Dynamic corp extensively use Microsoft Excel application for Financial reporting. Financial analyst at Dynamic Corp are well versed with use of Excel. But with growing business they find it difficult to manage reporting with excel. They found out Excel is a widely used tool for two dimensional data analysis, but presents enlisted limitations when used for multidimensional data analysis
+
+	Disconnected
+	Data Security Risks
+	Error Prone
+	Scalability issues
+	Lack of audit trails/log mechanism
+	Tedious and multi-step calculations
+
+To overcome these limitations and to proceed with an efficient and precise multi-dimensional data analysis, Essbase comes to the rescue. Essbase can be defined as a multidimensional database (comparable to Excel pivot table) offering following benefits -
+
+•	One single location for data – all analysts are using the same data, business drivers, and metrics for calculating departmental budgets.
+
+•	Standardization of Business Drivers – budget drivers can be loaded and calculated by the administrator so that all budgets are using the same methodology.
+
+•	Security – the administrator can apply security to certain dimensions and members, giving users access to only the data that they are responsible for. This allows more participation from the field in the budget process.
+
+•	Workflow - the administrator can completely control the workflow and approval process. Planning Units must be reviewed and approved before going up to the next approval level.
+
+•	Easy to consolidate – Hyperion Planning data is stored in a Hyperion Essbase OLAP database using hierarchies that make the consolidation process effortless.
+
+With the above stated benefits, it’s certainly worthwhile to understand the nitty-gritty of Essbase, its benefits, features and applications. This lab intends towards providing a holistic view of Essbase, its features, and applications.
+
 
 ### Required Artifacts
 
-•	The following lab requires an Oracle Public Cloud account that will either be supplied by your instructor, or can be obtained through the following steps.
-•	A cloud tenancy where you have the resources available to provision an ADW instance with 2 OCPUs, an Essbase instance with 2 OCPUs
+This lab will require the following -
+
+•	An Oracle public cloud tenancy where you have the resources available to provision an ADW instance with 2 OCPUs, an Essbase   instance with 2 OCPUs
+
 •	Smartview Plugin
+
 •	Cube Designer Plugin
 
 
 ## Register for Free Oracle Trial Account
 * Bookmark this page for future reference.
+
 * Please click on the URL to receive your [Free Account](https://myservices.us.oraclecloud.com/mycloud/signup?language=en&sourceType=:ex:tb:::RC_NAMK190227P00084:PredictDemandML_ADW_HOL&SC=:ex:tb:::RC_NAMK190227P00084:PredictDemandML_ADW_HOL&pcode=NAMK190227P00084) and complete all required steps. When you complete the registration process you'll receive a $300 credit that will enable you to complete the lab for free. Additionally, you'll have 1000s of hours left over to continue to explore the Oracle Cloud.
+
 * Soon after requesting your trial you will receive an activation email. Once that email is received and you have logged in to your environment you can begind the lab.
 
 Access the labs using our web-friendly interface [here](https://bangaloresolutionshub.github.io/essbaseworkshop/)  
+
+* Please click on the URL to receive your [Free Account](https://myservices.us.oraclecloud.com/mycloud/signup?language=en&sourceType=:ex:tb:::RC_NAMK190227P00084:PredictDemandML_ADW_HOL&SC=:ex:tb:::RC_NAMK190227P00084:PredictDemandML_ADW_HOL&pcode=NAMK190227P00084) and complete all required steps. When you complete the registration process you'll receive a $300 credit that will enable you to complete the lab for free. Additionally, you'll have 1000s of hours left over to continue to explore the Oracle Cloud.
