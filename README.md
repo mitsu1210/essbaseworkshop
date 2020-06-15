@@ -89,7 +89,9 @@ With the above stated benefits, it’s certainly worthwhile to understand the ni
 This lab will require the following -
 
 1. An Oracle public cloud tenancy where you have the resources available to provision an ADW instance with 2 OCPUs, an Essbase   instance with 2 OCPUs
+
 2. Smartview Plugin
+
 3. Cube Designer Plugin
 
 
