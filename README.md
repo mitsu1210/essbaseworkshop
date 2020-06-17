@@ -105,14 +105,11 @@ This lab will require the following -
 *Note:* You must use .NET Framework 4.5 if you are installing Smart View from Essbase without saving the installer locally.
 
 #### Installation Steps 
-1. Log into Essbase.
-2. Click Console.
-3. On the Desktop Tools tab, click the Browse icon to the right of Smart View for Essbase.
-4. On the Smart View download page on Oracle Technology Network, click Accept License Agreement, and then click Download Now.
-5. If the Oracle sign-in page is displayed, then sign in with your Oracle user name (usually your email address) and password.
-6. Follow the steps for your browser to download the .zip file, and save it to a folder on your computer.
-7. Go to the folder that you used in Step 5, and then double click smartview.exe to start the installation wizard.
-8. Select a destination folder for Smart View, and then click OK. For new installations, Smart View is installed by default in: C:\Oracle\smartview.
+1. Navigate to link https://www.oracle.com/middleware/technologies/epm-smart-view-downloads.html to download latest Smart View for office.
+2. 2.	On the Smart View download page on Oracle Technology Network, click Download Now, and then click Accept License Agreement. If the Oracle sign-in page is displayed, then sign in with your Oracle user name (usually your email address) and password.
+3. Follow the steps for your browser to download the .zip file, and save it to a folder on your computer.
+4. Go to the folder that you used in Step 5, and then double click smartview.exe to start the installation wizard.
+5. Select a destination folder for Smart View, and then click OK. For new installations, Smart View is installed by default in: C:\Oracle\smartview.
 9. If you are upgrading an installation of Smart View, then the installer defaults to the folder where you previously installed Smart View.
 10. When the installation is complete, click OK.
 
@@ -126,15 +123,7 @@ This lab will require the following -
 4. Locate the extension named Oracle Cube Designer and click Install to start the installer.
 5. Follow the prompts to install the extension.
 
-#### Installing Cube Designer from Essbase
-
-1. In Essbase, click Console.
-2. On the Desktop Tools tab, to the right of Cube Designer Extension, click Download .
-3. In the Opening CubeDesignerInstaller.svext dialog box, select Save File and click OK.
-4. Save the file to a local directory.
-5. Close all Microsoft Office applications and make sure Microsoft Office applications are not running in the background.
-6. Double click the CubeDesignerInstaller.svext file.
-7. Restart Microsoft Office applications.
+![](image1.png)
 
 ## Register for Free Oracle Trial Account
 * Bookmark this page for future reference.
