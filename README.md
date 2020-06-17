@@ -94,7 +94,7 @@ This lab will require the following -
 
 3. [Cube Designer Plugin](https://docs.oracle.com/en/cloud/paas/analytics-cloud/essug/install-smart-view-cube-designer-extension.html)
 
-### Installing Smartview Plugin
+#### Installing Smartview Plugin 
 
 #### Smart View Prerequisites
 1. The latest release of Smart View
@@ -116,7 +116,7 @@ This lab will require the following -
 9. If you are upgrading an installation of Smart View, then the installer defaults to the folder where you previously installed Smart View.
 10. When the installation is complete, click OK.
 
-### Installing Cube Designer Plugin
+#### Installing Cube Designer Plugin
 
 #### Installing Cube Designer from Smart View
 
