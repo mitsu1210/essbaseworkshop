@@ -1,32 +1,32 @@
 {
     "tutorials": [
         {
-            "title": "Workshop Overview",
+            "title": "Lab 12: Introduction to Essbase",
             "publisheddate": "04/13/2020",
             "filename": "./README.md"
         },
         {
-            "title": "Lab 100: Essbase on OCI - Deployment",
+            "title": "Lab 13: Essbase on OCI",
             "publisheddate": "04/13/2020",
             "filename": "./Lab100/LabGuide100.md"
         },
         {
-            "title": "Lab 200: ADW with Essbase - Building a cube using data from ADW",
+            "title": "Lab 14: Essbase and ADW",
             "publisheddate": "04/13/2020",
             "filename": "./Lab200/LabGuide200.md"
         },
         {
-            "title": "Lab 300: Essbase Feature Functionalities",
+            "title": "Lab 15: Essbase Feature Functionalities",
             "publisheddate": "04/13/2020",
             "filename": "./Lab300/LabGuide300.md"
         },
         {
-            "title": "Lab 400: Using Scenario Management",
+            "title": "Lab 16: User and Scenario Management",
             "publisheddate": "04/13/2020",
             "filename": "./Lab400/LabGuide400.md"
         },
         {
-            "title": "Lab 500: Data Visualization",
+            "title": "Lab 17: Data Visualization Analysis",
             "publisheddate": "04/13/2020",
             "filename": "./Lab500/LabGuide500.md"
         }
