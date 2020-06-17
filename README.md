@@ -102,7 +102,7 @@ This lab will require the following -
 3. Microsoft Office 2010, 2013 or 2016
 4. .NET Framework 4.0
 
-* Note:You must use .NET Framework 4.5 if you are installing Smart View from Essbase without saving the installer locally.
+*Note:* You must use .NET Framework 4.5 if you are installing Smart View from Essbase without saving the installer locally.
 
 #### Installation Steps 
 1. Log into Essbase.
