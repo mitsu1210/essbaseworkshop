@@ -97,10 +97,10 @@ This lab will require the following -
 ### Installing Smartview Plugin
 
 #### Smart View Prerequisites
-* The latest release of Smart View
-* On the Oracle Technology Network Downloads tab, the latest release for Smart View is always certified.
-* Microsoft Office 2010, 2013 or 2016
-* .NET Framework 4.0
+1. The latest release of Smart View
+2. On the Oracle Technology Network Downloads tab, the latest release for Smart View is always certified.
+3. Microsoft Office 2010, 2013 or 2016
+4. .NET Framework 4.0
 
 * Note:You must use .NET Framework 4.5 if you are installing Smart View from Essbase without saving the installer locally.
 
