@@ -72,7 +72,6 @@ Now click on users tab of this application toolbar & add the current user to the
 
 2.	Note down the COMPARTMENT OCID.
 
-
 ![](./images/image13_13.png "")
 
 ## Dynamic Group Creation
