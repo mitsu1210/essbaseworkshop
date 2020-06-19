@@ -10,11 +10,11 @@ Oracle Essbase on cloud helps you to build your company’s cloud strategy effic
 
 • Oracle Essbase provides a complete set of tools and features for deriving and sharing data insights.
 
-• Both large organizations and small teams can share data more simply, without the need to manage or consolidate multiple versions of spreadsheets, and quickly perform ad hoc analysis of the spreadsheet data.
+• Both large organizations and small teams can share data easily, without the need to manage or consolidate multiple versions of spreadsheets, and quickly perform ad hoc analysis of the spreadsheet data.
 
 • Application developers can utilize interfaces that enable them to extend, customize, and embed rich analytic experiences in the application flow.
 
-• With Oracle Essbase, you can take data from any source, and explore and collaborate with real-time data, using a               multidimensional engine.
+• Oracle Essbase, is a multi-dimensional engine that allows you to extract data from any source, handle real-time data and collaborate easily.
 
 • With Essbase on cloud you can create and manage Essbase applications from Microsoft Excel by using Cube Designer.
 
@@ -32,11 +32,11 @@ The following architecture diagram shows Essbase 19c deployed on Oracle infrastr
 
 * The connections to this application subnet are dependent on the Security List rules associated with the Application subnet. In this topology we will have ingress rules on the application subnet for SSH Connectivity and for HTTPS - Web UI connectivity to the Essbase19c VM via the Internet Gateway.
 
-* SSH connectivity is first required during the procurement process for the Resource Manager to configure & install the Essbase19c in the compute instance automatically with no manual work from our end and secondly after the procurement SSH connectivity enables the users to login to the backend Essbase19c instance and for corresponding access.
+* SSH connectivity is required during the procurement process. Resource Manager configures & installs the Essbase19c in the compute instance automatically with no manual work from our end. Secondly, post procurement, SSH connectivity enables the users to login to the backend Essbase19c instance for access.
 
-* The Essbase19c instance procured will manage its users using the IDCS of Oracle Cloud & metadata gets stored in the ATP-Autonomous Database.
+* The procured Essbase19c instance will manage its users using the IDCS of Oracle Cloud & metadata gets stored in the ATP-Autonomous Database.
 
-* Essbase backups gets stored in the Object storage of the OCI & the connectivity to this is established by the service gateway.
+* Essbase backups gets stored in the Object storage of the OCI, the connectivity to which is established by the service gateway.
 
 *Note:* This lab is intended to be a comprehensive full cloud showcase. As such, it is assumed a user going through this workshop will be provisioning resources and creating users from scratch. If you decide to use existing infrastructure or resources, be aware and keep note of your namings so resources don't overlap and conflict.
 
@@ -44,7 +44,7 @@ The following architecture diagram shows Essbase 19c deployed on Oracle infrastr
 
 ## Working with Essbase
 
-During our workshop we will help fictitious company Dynamic Corporation to perform financial analysis. Dynamic Corp. is a high-tech manufacturer of hard disk drives. It is headquartered in California, Bay Area. Dynamic Corp. has its operations spread across multiple regions. Various departments within Dynamic Corp. performs financial analysis.
+During our workshop we will help a fictitious company Dynamic Corporation to perform financial analysis. Dynamic Corp. is a high-tech manufacturer of hard disk drives. It is headquartered in California, Bay Area. Dynamic Corp., has its operations spread across multiple regions. Various departments within Dynamic Corp. performs financial analysis.
 
 Financial analysis develop number of reports as follows:
 
@@ -60,7 +60,7 @@ Financial analysis develop number of reports as follows:
 * Monthly product development reports 
 * Details of company cost structures
 
-Dynamic corp extensively use Microsoft Excel application for Financial reporting. Financial analyst at Dynamic Corp are well versed with use of Excel. But with growing business they find it difficult to manage reporting with excel. They found out Excel is a widely used tool for two dimensional data analysis, but presents enlisted limitations when used for multidimensional data analysis -
+Dynamic Corp. extensively use Microsoft Excel application for Financial reporting. Financial analyst at Dynamic Corp. are well versed with use of Excel. But with growing business they find it difficult to manage reporting with excel. They found out Excel is a widely used tool for two dimensional data analysis, but presents enlisted limitations when used for multidimensional data analysis -
 
 1. Disconnected
 2. Data Security Risks
@@ -106,7 +106,7 @@ This lab will require the following -
 
 #### Installation Steps 
 1. Navigate to link https://www.oracle.com/middleware/technologies/epm-smart-view-downloads.html to download latest Smart View for office.
-2. 2.	On the Smart View download page on Oracle Technology Network, click Download Now, and then click Accept License Agreement. If the Oracle sign-in page is displayed, then sign in with your Oracle user name (usually your email address) and password.
+2. On the Smart View download page on Oracle Technology Network, click Download Now, and then click Accept License Agreement. If the Oracle sign-in page is displayed, then sign in with your Oracle user name (usually your email address) and password.
 3. Follow the steps for your browser to download the .zip file, and save it to a folder on your computer.
 4. Go to the folder that you used in Step 5, and then double click smartview.exe to start the installation wizard.
 5. Select a destination folder for Smart View, and then click OK. For new installations, Smart View is installed by default in: C:\Oracle\smartview.
