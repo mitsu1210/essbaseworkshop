@@ -1,5 +1,21 @@
 # Lab 13: Essbase on OCI
 
+## Introduction
+
+This lab walks you through the steps to create an IDCS confidential application, which we will be using to monitor the Essbase19c that we are going to deploy by the end of this session after all the pre-requisites are achieved and use SSH Keys to login to the backend Essbase instance for corresponding access & use IDCS login to access Essbase UI [front-end].
+
+## Objectives
+
+•	Learn how to Setup IDCS Confidential Application
+•	Learn the Pre-requisites for Essbase 19c Deployment
+•	Learn how to Deploy Essbase 19c on OCI
+•	Learn SSH into Essbase19c Backend Server
+
+## Required Artifacts
+
+•	The following lab requires an Oracle Public Cloud account with IDCS & OCI Administrator Access for the whole process of deployment of Essbase19c on OCI without any hassles.
+•	The estimated time to complete this lab is 45 minutes.
+
 ## Part 1: Login to IDCS with Administrator privileges
 
 1.	Log in to Identity Cloud Service as the identity domain administrator. To get to the Identity Cloud Service console from Oracle Cloud Infrastructure, click Identity, then Federation, and click on the URL link next to Oracle Identity Cloud Service Console. 
