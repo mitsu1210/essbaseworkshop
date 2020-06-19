@@ -6,15 +6,15 @@ This lab walks you through the steps to create an IDCS confidential application,
 
 ## Objectives
 
-•	Learn how to Setup IDCS Confidential Application
-•	Learn the Pre-requisites for Essbase 19c Deployment
-•	Learn how to Deploy Essbase 19c on OCI
-•	Learn SSH into Essbase19c Backend Server
+* Learn how to Setup IDCS Confidential Application
+* Learn the Pre-requisites for Essbase 19c Deployment
+* Learn how to Deploy Essbase 19c on OCI
+* Learn SSH into Essbase19c Backend Server
 
 ## Required Artifacts
 
-•	The following lab requires an Oracle Public Cloud account with IDCS & OCI Administrator Access for the whole process of deployment of Essbase19c on OCI without any hassles.
-•	The estimated time to complete this lab is 45 minutes.
+* The following lab requires an Oracle Public Cloud account with IDCS & OCI Administrator Access for the whole process of deployment of Essbase19c on OCI without any hassles.
+* The estimated time to complete this lab is 45 minutes.
 
 ## Part 1: Login to IDCS with Administrator privileges
 
