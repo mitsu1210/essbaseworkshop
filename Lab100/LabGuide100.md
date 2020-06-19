@@ -14,7 +14,7 @@ This lab walks through the steps to deploy an instance of Essbase 19c with all i
 
 * The following lab requires an Oracle Public Cloud account with IDCS & OCI administrator access for the process of deployment of Essbase19c on OCI.
 
-*Note: * The estimated time to complete this lab is 45 minutes.
+*Note:* The estimated time to complete this lab is 45 minutes.
 
 ## Part 1: Login to IDCS with Administrator privileges
 
@@ -192,50 +192,88 @@ As the Oracle Cloud Infrastructure administrator, you use Oracle Cloud Infrastru
 
 1.	Sign into Oracle Cloud Infrastructure console as the Oracle Cloud Infrastructure administrator.
 2.	From the navigation menu, select Marketplace.
+
+![](./images/image13_21.png "")
+
 3.	On Oracle Marketplace page,
 a.	In the title bar, select or accept the region from which to run the deployment.
 b.	In the Category dropdown menu, select Database Management. 
 c.	Under All Applications, select Oracle Essbase BYOL.
+
+![](./images/image13_22.png "")
+
 d.	Select the stack version, or accept the default.
 e.	From the dropdown menu, select the target Compartment that you created for Essbase, in which to create the stack instance. 
 f.	Select the check box to indicate you accept the Oracle Standard Terms and Restrictions.
 g.	Click Launch Stack.
+
+![](./images/image13_23.png "")
+
 4.	In Stack Information, on the Create Stack page.
 a.	Enter a stack name, description, and any other stack information as necessary.
 b.	Click Next.
+
+![](./images/image13_24.png "")
+
 5.	In General Settings, on the Configure Variables page, you configure variables for the infrastructure resources that the stack creates. 
 a.	[Optional] Enter Resource Display Name Prefix value to use to identify all generated resources, for example essbase_<userid>. If not entered, a prefix is assigned. 
 The target compartment you previously selected is shown.
 b.	Enter values for KMS Key OCID and KMS Service Crypto Endpoint for encrypting credentials during provisioning.
 c.	[Optional] Select Show Advanced Options if you want to enable additional network configuration options under Network Configuration. Use this if you plan to create a new virtual cloud network (VCN) or subnets.
+
+![](./images/image13_25.png "")
+	
 6.	In Essbase Instance:
 a.	Select an availability domain in which to create the Essbase compute instance. Enter the shape for the Essbase compute instance.
 b.	Enter the data volume size or accept the default.
 c.	Paste the value of the SSH public key that you created, to access the Essbase compute instance.
 d.	In the Essbase System Admin User Name field, enter an Essbase administrator user name and password - which is encrypted by KMS key as part of To encrypt your Oracle Essbase Administrator password. It can be an Identity Cloud Service user, but it doesn’t have to be. It provides an additional way (if necessary) to log in to Essbase, and is also the administrator used to Access the WebLogic Console on which Essbase runs. If you don't enter an Identity Cloud Service user in this field, then you must provide one in the IDCS Essbase Admin User field later in the stack definition, in the Security Configuration section. If you enter an Identity Cloud Service user in this field, then the Identity Cloud Service System Administrator User ID is optional in the Security Configuration section.
+
+![](./images/image13_26.png "")
+
 7.	In Security Configuration:
 a.	Select IDCS for use with your production instances. To set up security and access for Essbase 19c, you integrate Essbase with Identity Cloud Service as part of the stack deployment. The Embedded option is not recommended or supported for production instances.
 b.	Enter the IDCS Instance GUID, IDCS Application Client ID, and IDCS Application Client Secret values – which is encrypted by KMS key as part of To encrypt your Oracle Essbase Administrator password , which you recorded as pre-deployment requirements, after you created a confidential Identity Cloud Service Application.
 c.	Enter IDCS Essbase Admin User value. This cannot be the same user ID as the Essbase administrator. Additionally, this user ID must already exist in the Identity Cloud Service tenancy. If you do not provide this user ID during stack creation, or if its mapping to the initial Essbase administrator doesn't happen correctly, you can later use the Identity Cloud Service REST API to create this user and link it to Essbase. See REST API for Oracle Identity Cloud Service.
+
+![](./images/image13_27.png "")
+
 8.	In Network Configuration, if you DID select Show Advanced Options under General Settings:
 a.	Select the Assign Public IP address option as below, which creates a whole new VCN automatically for the Essbase deployment.
+
+![](./images/image13_28.png "")
+
 9.	In Database Configuration, perform the following configuration tasks to create new Autonomous Database for this deployment:
 Database configuration tasks:
 a.	Enter a database admin user password - which is encrypted by KMS key as part of To encrypt your Oracle Essbase Administrator password.
 b.	Select the database license or accept the default.
 c.	Click Next.
+
+![](./images/image13_29.png "")
+
 10.	On the Review page, review the information that you provided, and click Create. The Job Information tab in Oracle Resource Manager shows the status until the job finishes and the stack is created.
 11.	Check for any log errors. If you have any, see Troubleshoot Deployment Errors.
 12.	If the job is executed without any errors we can see the Job Successful state in green color as below.
+
+![](./images/image13_30.png "")
+
 13.	From the Application Information page, the value for essbase_url is used in the browser to access Essbase. The essbase_node_public_ip is for accessing SSH.
 14.	After you deploy the stack, now complete the post-deployment tasks, including update your created Identity Cloud Service application, test connectivity to Essbase, and others.
+
+![](./images/image13_31.png "")
+
 You can modify the created resources and configure variables later. Logs are created that can be forwarded to Oracle Support, if necessary for troubleshooting. After deployment, you're ready to assign users to roles and permissions in the Essbase web interface. You can also perform additional network and security configuration. 
 	
 ## Part 8: Post-Deployment Tasks 
 
 Once we have the outputs generated & job executed successfully, we need to update these endpoints i.e. Essbase Redirect URL and Essbase Post Logout Redirect URL back in the Essbase IDCS Confidential Application, where we fed temporary URL’s as below.
 
-Now we can test the connectivity to Essbase 19c by clicking on Essbase external URL .
+![](./images/image13_32.png "")
+
+Now we can test the connectivity to Essbase 19c by clicking on Essbase external URL.
+
+![](./images/image13_33.png "")
 
 By getting this we confirm that we have successfully deployed Essbase19c.
 
+![](./images/image13_34.png "")
