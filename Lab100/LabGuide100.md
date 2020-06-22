@@ -111,7 +111,7 @@ Now click on users tab of this application toolbar & add the current user to the
 
 4.	When done, click Create.
 
-Similarly create a policy each, for both groups and dynamic groups, as necessary with policy statements give [here.] - (https://docs.oracle.com/en/database/other-databases/essbase/19.3/essad/set-policies.html)
+Similarly create a policy each, for both groups and dynamic groups, as necessary with policy statements give [here] - (https://docs.oracle.com/en/database/other-databases/essbase/19.3/essad/set-policies.html)
 
 ## Part 6: Encrypt Values Using KMS
 
