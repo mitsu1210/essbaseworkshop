@@ -105,13 +105,13 @@ Now click on users tab of this application toolbar & add the current user to the
 
 1.	On the Oracle Cloud Infrastructure console, navigate to the left icon under the Governance and Administration section, click Identity, select Policies, select the root compartment, and then click Create Policy. 
 2.	Provide a name and description for the policy.
-3.	Add the policy statements (Allow) as given [HERE - Embed the URL https://docs.oracle.com/en/database/other-databases/essbase/19.3/essad/set-policies.html] for both Admin group and Dynamic Group Policies. Specify the group_name in the policy statement.
+3.	Add the policy statements (Allow) as given [here] (https://docs.oracle.com/en/database/other-databases/essbase/19.3/essad/set-policies.html) for both Admin group and Dynamic Group Policies. Specify the group_name in the policy statement.
 
 ![](./images/image13_15.png "")
 
 4.	When done, click Create.
 
-Similarly create a policy each, for both groups and dynamic groups, as necessary with policy statements give here - https://docs.oracle.com/en/database/other-databases/essbase/19.3/essad/set-policies.html.
+Similarly create a policy each, for both groups and dynamic groups, as necessary with policy statements give [here.] - (https://docs.oracle.com/en/database/other-databases/essbase/19.3/essad/set-policies.html)
 
 ## Part 6: Encrypt Values Using KMS
 
