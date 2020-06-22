@@ -52,7 +52,7 @@ Before deploying the Essbase stack, create a confidential application in Oracle 
 
 4.	In the Client step, select the option Configure this application as a client now.
 
-## In the Authorization section, 
+- In the Authorization section, 
 
 * Select the following allowed grant types: Client Credentials and Authorization Code. 
 * Select allow non-HTTPS URLs. 
