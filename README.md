@@ -24,23 +24,7 @@ Oracle Essbase on cloud helps you to build your company’s cloud strategy effic
 
 ## Essbase 19c VM Architecture 
 
-The following architecture diagram shows Essbase 19c deployed on Oracle infrastructure cloud (OCI) with integration to different cloud services - Autonomous Database, Load Balancer, Storage, Virtual Cloud Network (VCN) as part of the deployment.
-
 ![](Architecture.png)
-
-* Essbase19c VM resides in the Application subnet as shown in the above figure which is configured automatically with Block Volumes – Configuration Volume & Data Volume. 
-
-* The connections to this application subnet are dependent on the Security List rules associated with the Application subnet. In this topology we will have ingress rules on the application subnet for SSH Connectivity and for HTTPS - Web UI connectivity to the Essbase19c VM via the Internet Gateway.
-
-* SSH connectivity is required during the procurement process. Resource Manager configures & installs the Essbase19c in the compute instance automatically with no manual work from our end. Secondly, post procurement, SSH connectivity enables the users to login to the backend Essbase19c instance for access.
-
-* The procured Essbase19c instance will manage its users using the IDCS of Oracle Cloud & metadata gets stored in the ATP-Autonomous Database.
-
-* Essbase backups gets stored in the Object storage of the OCI, the connectivity to which is established by the service gateway.
-
-*Note:* This lab is intended to be a comprehensive full cloud showcase. As such, it is assumed a user going through this workshop will be provisioning resources and creating users from scratch. If you decide to use existing infrastructure or resources, be aware and keep note of your namings so resources don't overlap and conflict.
-
-*Note:* Additionally, as much as possible, do not stray away from the naming conventions used for resources in this worshop. You may run into errors if you do.
 
 ## Working with Essbase
 
