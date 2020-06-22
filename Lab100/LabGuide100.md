@@ -92,7 +92,7 @@ Now click on users tab of this application toolbar & add the current user to the
 
 ## Part 4: Dynamic Group Creation
 
-1.	Create a Dynamic group, which is under Identity      Dynamic Group,  so that instances under this group will have permissions to manage OCI resources.
+1.	Create a Dynamic group, which is under Identity Dynamic Group,  so that instances under this group will have permissions to manage OCI resources.
 2.	Select “ANY OF THE FOLLOWING RULES” as rules for match.
 3.	Select “Match Instances in Compartment ID” as attribute.
 4.	Now paste the Compartment OCID noted before & click on Add Rule.
