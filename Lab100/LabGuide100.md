@@ -52,12 +52,12 @@ Before deploying the Essbase stack, create a confidential application in Oracle 
 
 4.	In the Client step, select the option Configure this application as a client now.
 
-* In the Authorization section, 
-•	Select the following allowed grant types: Client Credentials and Authorization Code. 
-•	Select allow non-HTTPS URLs. 
+## In the Authorization section, 
 
-a.	For the Essbase Redirect URL, enter a temporary/mock redirection URL (it ends with _uri): http://ip/essbase
-b.	 For the Essbase Post Logout Redirect URL, enter a temporary/mock URL: http://ip/essbase
+* Select the following allowed grant types: Client Credentials and Authorization Code. 
+* Select allow non-HTTPS URLs. 
+	1. For the Essbase Redirect URL, enter a temporary/mock redirection URL (it ends with _uri): http://ip/essbase
+	2. For the Essbase Post Logout Redirect URL, enter a temporary/mock URL: http://ip/essbase
 
 ![](./images/image13_7.png "")
 
@@ -105,7 +105,7 @@ Now click on users tab of this application toolbar & add the current user to the
 
 1.	On the Oracle Cloud Infrastructure console, navigate to the left icon under the Governance and Administration section, click Identity, select Policies, select the root compartment, and then click Create Policy. 
 2.	Provide a name and description for the policy.
-3.	Add a policy statement (Allow) for each instance in the compartment. Copy them from your text worklist file. Specify the group_name in the policy statement.
+3.	Add the policy statements (Allow) as given [HERE - Embed the URL https://docs.oracle.com/en/database/other-databases/essbase/19.3/essad/set-policies.html] for both Admin group and Dynamic Group Policies. Specify the group_name in the policy statement.
 
 ![](./images/image13_15.png "")
 
